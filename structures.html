@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kingdom Structures</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, serif;
+      background: #1a1208;
+      color: #e8d5a3;
+      min-height: 100vh;
+    }
+
+    .site-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #1e1508;
+      border-bottom: 1px solid #3a2a10;
+    }
+
+    .site-nav a {
+      font-family: sans-serif;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.3em 0.8em;
+      border-radius: 3px;
+      text-decoration: none;
+      color: #a08050;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    .site-nav a:hover { color: #f0c060; background: #2e2010; }
+    .site-nav a.active { color: #f0c060; }
+
+    h1 {
+      text-align: center;
+      padding: 1.5rem 1rem 1rem;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      color: #f0c060;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid #5a3e1b;
+    }
+
+    #structure-list {
+      max-width: 800px;
+      margin: 1rem auto 3rem;
+      padding: 0 0.75rem;
+      list-style: none;
+    }
+
+    .structure-item {
+      border: 1px solid #5a3e1b;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+      background: #231a0a;
+      overflow: hidden;
+    }
+
+    .structure-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+    }
+
+    .structure-header:hover {
+      background: #2e2010;
+    }
+
+    .structure-name {
+      font-size: 1.05rem;
+      font-weight: bold;
+      color: #f0c060;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .traits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 600px) {
+      .structure-header .traits { display: none; }
+      .structure-body .traits { display: flex; margin-bottom: 0.75rem; }
+      .structure-header { flex-wrap: nowrap; }
+      .structure-name { flex-shrink: 0; }
+      .structure-header .level-badge {
+        flex: 0 1 auto;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    @media (min-width: 601px) {
+      .structure-body .traits { display: none; }
+    }
+
+    .trait {
+      font-size: 0.7rem;
+      font-family: sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.15em 0.5em;
+      border-radius: 3px;
+      background: #5a3e1b;
+      color: #f0d090;
+    }
+
+    .trait.building       { background: #2a1808; color: #c07850; }
+    .trait.yard           { background: #1a3010; color: #80c040; }
+    .trait.infrastructure { background: #0a2a3a; color: #60a0c0; }
+    .trait.residential    { background: #3a2a10; color: #d0a060; }
+    .trait.civic          { background: #4a3a1a; color: #d0b060; }
+    .trait.edifice        { background: #2a0a3a; color: #b060e0; }
+    .trait.famous         { background: #3a2a00; color: #e0c020; }
+    .trait.infamous       { background: #3a0808; color: #c04040; }
+
+    .level-badge {
+      font-size: 0.75rem;
+      font-family: sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.15em 0.5em;
+      border-radius: 3px;
+      background: #1a2a3a;
+      color: #80a8c8;
+      white-space: nowrap;
+    }
+
+    .chevron {
+      font-size: 0.75rem;
+      color: #7a5a30;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+      margin-left: 0.25rem;
+    }
+
+    .structure-item.open .chevron {
+      transform: rotate(180deg);
+    }
+
+    .structure-body {
+      display: none;
+      padding: 0.75rem 1rem 1rem;
+      border-top: 1px solid #3a2a10;
+    }
+
+    .structure-item.open .structure-body {
+      display: block;
+    }
+
+    .structure-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .meta-item {
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      color: #a08050;
+      padding: 0.35rem 0.75rem;
+      border-left: 3px solid #5a3e1b;
+      background: #1e1508;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .meta-item strong {
+      display: block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #c0a060;
+      margin-bottom: 0.15em;
+    }
+
+    .requirements {
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      color: #a08050;
+      margin-bottom: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      border-left: 3px solid #5a3e1b;
+      background: #1e1508;
+    }
+
+    .requirements strong {
+      color: #c0a060;
+    }
+
+    .upgrade-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .upgrade-group {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .upgrade-label {
+      font-family: sans-serif;
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #7a5a30;
+    }
+
+    .upgrade-tag {
+      font-family: sans-serif;
+      font-size: 0.78rem;
+      padding: 0.15em 0.55em;
+      border-radius: 3px;
+      background: #2a2010;
+      color: #b09060;
+      border: 1px solid #5a4020;
+    }
+
+    .description {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+      color: #d8c590;
+    }
+
+    .effects-section {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      padding: 0.5rem 0.75rem;
+      border-left: 3px solid #4a6a3a;
+      background: #161e10;
+      margin-bottom: 0.75rem;
+      color: #b0c890;
+    }
+
+    .effects-section strong {
+      display: block;
+      font-family: sans-serif;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #70a050;
+      margin-bottom: 0.3em;
+    }
+
+    .item-bonus-section {
+      margin-bottom: 0.75rem;
+    }
+
+    .item-bonus-label {
+      font-family: sans-serif;
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #9a7030;
+      margin-bottom: 0.4rem;
+    }
+
+    .item-bonus-entry {
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      color: #d4a843;
+      padding: 0.3rem 0.75rem;
+      border-left: 3px solid #9a7030;
+      background: #1e1a08;
+      margin-bottom: 0.3rem;
+      border-radius: 0 3px 3px 0;
+    }
+
+    .ruin-label {
+      font-family: sans-serif;
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #9a5030;
+      margin-bottom: 0.4rem;
+    }
+
+    .ruin-entry {
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      color: #d47070;
+      padding: 0.3rem 0.75rem;
+      border-left: 3px solid #7a3030;
+      background: #1e0808;
+      border-radius: 0 3px 3px 0;
+    }
+
+    /* Filter bar */
+    #filter-bar {
+      max-width: 800px;
+      margin: 0.75rem auto 0;
+      padding: 0 0.75rem;
+    }
+
+    #filter-panel {
+      background: #231a0a;
+      border: 1px solid #5a3e1b;
+      border-radius: 4px;
+    }
+
+    #filter-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      width: 100%;
+      background: none;
+      border: none;
+      color: #c0a060;
+      font-family: sans-serif;
+      font-size: 0.85rem;
+      padding: 0.5rem 0.75rem;
+      cursor: pointer;
+      user-select: none;
+      text-align: left;
+    }
+
+    #filter-toggle:hover { background: #2e2010; }
+
+    .filter-active-indicators {
+      display: flex;
+      gap: 0.3rem;
+      margin-left: 0.4rem;
+    }
+
+    .filter-active-dot {
+      font-size: 0.65rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.1em 0.45em;
+      border-radius: 3px;
+      background: #9a7030;
+      color: #f0e0b0;
+    }
+
+    .filter-chevron {
+      font-size: 0.65rem;
+      transition: transform 0.2s;
+      margin-left: auto;
+    }
+
+    #filter-toggle[aria-expanded="true"] .filter-chevron {
+      transform: rotate(180deg);
+    }
+
+    #filter-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding: 0.5rem 0.75rem 0.75rem;
+      border-top: 1px solid #3a2a10;
+    }
+
+    .filter-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0;
+    }
+
+    #filter-options[hidden] { display: none; }
+
+    .filter-section-label {
+      flex: 0 0 100%;
+      font-family: sans-serif;
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #7a5a30;
+    }
+
+    .filter-section + .filter-section {
+      border-top: 1px solid #3a2a10;
+      margin-top: 0.25rem;
+      padding-top: 0.6rem;
+    }
+
+    #search-input {
+      width: 100%;
+      background: #1a1208;
+      border: 1px solid #5a3e1b;
+      border-radius: 3px;
+      color: #e8d5a3;
+      font-family: Georgia, serif;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.6rem;
+      outline: none;
+    }
+
+    #search-input:focus { border-color: #9a7030; }
+    #search-input::placeholder { color: #5a4020; }
+
+    .level-btn {
+      font-family: sans-serif;
+      font-size: 0.8rem;
+      font-weight: bold;
+      padding: 0.25em 0.65em;
+      border-radius: 3px;
+      border: 2px solid transparent;
+      background: #1a2a3a;
+      color: #80a8c8;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.15s, border-color 0.15s;
+    }
+
+    .level-btn:hover { opacity: 0.85; }
+    .level-btn.active { opacity: 1; border-color: #80a8c8; }
+
+    .trait-filter-btn {
+      font-family: sans-serif;
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.2em 0.6em;
+      border-radius: 3px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      opacity: 0.55;
+      transition: opacity 0.15s, border-color 0.15s;
+    }
+
+    .trait-filter-btn[data-trait="Building"]       { background: #2a1808; color: #c07850; }
+    .trait-filter-btn[data-trait="Yard"]           { background: #1a3010; color: #80c040; }
+    .trait-filter-btn[data-trait="Infrastructure"] { background: #0a2a3a; color: #60a0c0; }
+    .trait-filter-btn[data-trait="Residential"]    { background: #3a2a10; color: #d0a060; }
+    .trait-filter-btn[data-trait="Civic"]          { background: #4a3a1a; color: #d0b060; }
+    .trait-filter-btn[data-trait="Edifice"]        { background: #2a0a3a; color: #b060e0; }
+    .trait-filter-btn[data-trait="Famous"]         { background: #3a2a00; color: #e0c020; }
+    .trait-filter-btn[data-trait="Infamous"]       { background: #3a0808; color: #c04040; }
+
+    .trait-filter-btn:hover { opacity: 0.8; }
+    .trait-filter-btn.active { opacity: 1; border-color: currentColor; }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html">Home</a>
+  <a href="activities.html">Activities</a>
+  <a href="structures.html" class="active">Structures</a>
+</nav>
+
+<h1>Kingdom Structures</h1>
+
+<div id="filter-bar">
+  <div id="filter-panel">
+    <button id="filter-toggle" aria-expanded="false">
+      Search and Filters
+      <span class="filter-active-indicators">
+        <span class="filter-active-dot" id="ind-level" hidden>Level</span>
+        <span class="filter-active-dot" id="ind-trait" hidden>Trait</span>
+      </span>
+      <span class="filter-chevron">▼</span>
+    </button>
+    <div id="filter-options" hidden>
+      <div class="filter-section">
+        <input type="search" id="search-input" placeholder="Search structures…" autocomplete="off">
+      </div>
+      <div class="filter-section" id="level-filter-section">
+        <span class="filter-section-label">Level</span>
+      </div>
+      <div class="filter-section">
+        <span class="filter-section-label">Trait</span>
+        <button class="trait-filter-btn" data-trait="Building">Building</button>
+        <button class="trait-filter-btn" data-trait="Yard">Yard</button>
+        <button class="trait-filter-btn" data-trait="Infrastructure">Infrastructure</button>
+        <button class="trait-filter-btn" data-trait="Residential">Residential</button>
+        <button class="trait-filter-btn" data-trait="Civic">Civic</button>
+        <button class="trait-filter-btn" data-trait="Edifice">Edifice</button>
+        <button class="trait-filter-btn" data-trait="Famous">Famous</button>
+        <button class="trait-filter-btn" data-trait="Infamous">Infamous</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ul id="structure-list"></ul>
+
+<script>
+  const filterToggle  = document.getElementById('filter-toggle');
+  const filterOptions = document.getElementById('filter-options');
+  filterToggle.addEventListener('click', () => {
+    const open = filterToggle.getAttribute('aria-expanded') === 'true';
+    filterToggle.setAttribute('aria-expanded', !open);
+    filterOptions.hidden = open;
+  });
+
+  function toTitleCase(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  }
+
+  fetch('structures.json')
+    .then(r => r.json())
+    .then(structures => {
+      structures.sort((a, b) => {
+        if (a.level === null && b.level === null) return a.name.localeCompare(b.name);
+        if (a.level === null) return 1;
+        if (b.level === null) return -1;
+        if (a.level !== b.level) return a.level - b.level;
+        return a.name.localeCompare(b.name);
+      });
+
+      const list = document.getElementById('structure-list');
+      const structureItems = [];
+
+      const activeLevels = new Set();
+      const activeTraits = new Set();
+      let searchTerm = '';
+
+      const indLevel = document.getElementById('ind-level');
+      const indTrait = document.getElementById('ind-trait');
+
+      function updateIndicators() {
+        indLevel.hidden = activeLevels.size === 0;
+        indTrait.hidden = activeTraits.size === 0;
+      }
+
+      function applyFilter() {
+        structureItems.forEach(({ li, levelKey, traits, searchText }) => {
+          const levelMatch = activeLevels.size === 0 || activeLevels.has(levelKey);
+          const traitMatch = activeTraits.size === 0 || traits.some(t => activeTraits.has(t));
+          const searchMatch = searchTerm === '' || searchText.includes(searchTerm);
+          li.hidden = !(levelMatch && traitMatch && searchMatch);
+        });
+      }
+
+      // Build level buttons from data
+      const levels = [...new Set(structures.map(s => s.level))].sort((a, b) => {
+        if (a === null) return 1;
+        if (b === null) return -1;
+        return a - b;
+      });
+
+      const levelSection = document.getElementById('level-filter-section');
+      levels.forEach(level => {
+        const key = level === null ? 'null' : String(level);
+        const btn = document.createElement('button');
+        btn.className = 'level-btn';
+        btn.dataset.level = key;
+        btn.textContent = level === null ? '—' : level;
+        btn.addEventListener('click', () => {
+          if (activeLevels.has(key)) { activeLevels.delete(key); btn.classList.remove('active'); }
+          else                       { activeLevels.add(key);    btn.classList.add('active'); }
+          updateIndicators();
+          applyFilter();
+        });
+        levelSection.appendChild(btn);
+      });
+
+      document.getElementById('search-input').addEventListener('input', e => {
+        searchTerm = e.target.value.trim().toLowerCase();
+        applyFilter();
+      });
+
+      document.querySelectorAll('.trait-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const t = btn.dataset.trait;
+          if (activeTraits.has(t)) { activeTraits.delete(t); btn.classList.remove('active'); }
+          else                     { activeTraits.add(t);    btn.classList.add('active'); }
+          updateIndicators();
+          applyFilter();
+        });
+      });
+
+      structures.forEach(structure => {
+        const li = document.createElement('li');
+        li.className = 'structure-item';
+
+        const titleCaseTraits = structure.traits.map(toTitleCase);
+
+        const traitsHtml = titleCaseTraits.map(t =>
+          `<span class="trait ${t.toLowerCase()}">${t}</span>`
+        ).join('');
+
+        const levelHtml = structure.level !== null
+          ? `<span class="level-badge">Lvl ${structure.level}</span>`
+          : '';
+
+        // Meta row: Lots, Cost, Construction
+        const metaItems = [];
+        if (structure.lots)         metaItems.push(`<div class="meta-item"><strong>Lots</strong>${structure.lots}</div>`);
+        if (structure.cost)         metaItems.push(`<div class="meta-item"><strong>Cost</strong>${structure.cost}</div>`);
+        if (structure.construction) metaItems.push(`<div class="meta-item"><strong>Construction</strong>${structure.construction}</div>`);
+        const metaHtml = metaItems.length
+          ? `<div class="structure-meta">${metaItems.join('')}</div>`
+          : '';
+
+        const reqHtml = structure.requirements
+          ? `<div class="requirements"><strong>Requirements</strong> ${structure.requirements}</div>`
+          : '';
+
+        const upgradeParts = [];
+        if (structure.upgradeFrom && structure.upgradeFrom.length) {
+          const tags = structure.upgradeFrom.map(u => `<span class="upgrade-tag">${u}</span>`).join('');
+          upgradeParts.push(`<div class="upgrade-group"><span class="upgrade-label">Upgrades from:</span>${tags}</div>`);
+        }
+        if (structure.upgradeTo && structure.upgradeTo.length) {
+          const tags = structure.upgradeTo.map(u => `<span class="upgrade-tag">${u}</span>`).join('');
+          upgradeParts.push(`<div class="upgrade-group"><span class="upgrade-label">Upgrades to:</span>${tags}</div>`);
+        }
+        const upgradeHtml = upgradeParts.length
+          ? `<div class="upgrade-section">${upgradeParts.join('')}</div>`
+          : '';
+
+        const descHtml = structure.description
+          ? `<div class="description">${structure.description}</div>`
+          : '';
+
+        const effectsHtml = structure.effects
+          ? `<div class="effects-section"><strong>Effects</strong>${structure.effects}</div>`
+          : '';
+
+        const itemBonusHtml = structure.itemBonus
+          ? `<div class="item-bonus-section">
+              <div class="item-bonus-label">Item Bonus</div>
+              <div class="item-bonus-entry">${structure.itemBonus}</div>
+            </div>`
+          : '';
+
+        const ruinHtml = structure.ruin
+          ? `<div class="ruin-label">Ruin</div><div class="ruin-entry">${structure.ruin}</div>`
+          : '';
+
+        li.innerHTML = `
+          <div class="structure-header">
+            <span class="structure-name">${structure.name}</span>
+            <div class="traits">${traitsHtml}</div>
+            ${levelHtml}
+            <span class="chevron">▼</span>
+          </div>
+          <div class="structure-body">
+            <div class="traits">${traitsHtml}</div>
+            ${metaHtml}
+            ${reqHtml}
+            ${upgradeHtml}
+            ${descHtml}
+            ${effectsHtml}
+            ${itemBonusHtml}
+            ${ruinHtml}
+          </div>
+        `;
+
+        li.querySelector('.structure-header').addEventListener('click', () => {
+          li.classList.toggle('open');
+        });
+
+        list.appendChild(li);
+
+        const searchText = [
+          structure.name, structure.description, structure.effects,
+          structure.itemBonus, structure.requirements, structure.construction,
+          structure.cost, structure.ruin
+        ].filter(Boolean).join(' ').toLowerCase();
+
+        const levelKey = structure.level === null ? 'null' : String(structure.level);
+
+        structureItems.push({ li, levelKey, traits: titleCaseTraits, searchText });
+      });
+    });
+</script>
+</body>
+</html>

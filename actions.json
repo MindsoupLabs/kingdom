@@ -1,0 +1,1053 @@
+[
+  {
+    "name": "Abandon Hex",
+    "traits": [
+      "Downtime",
+      "Region"
+    ],
+    "requirements": "The hex to be abandoned must be controlled.",
+    "skill_name": "Exploration or Wilderness",
+    "skill_proficiency": "Untrained",
+    "description": "After careful consideration, you decide that you would rather not hold onto a particular hex as a part of your claimed territory. You renounce your claim to it and pull back any settlers or explorers. Attempt a basic Exploration or Wilderness check. You can abandon more than one hex at a time, but each additional hex you abandon increases the DC of this check by 1.",
+    "critical_success": "You abandon the hex or hexes, decreasing your kingdom's Size by 1 per hex abandoned (this affects all statistics determined by Size; see page 38). Settlers and explorers return and resettle elsewhere in your kingdom, bringing with them bits of salvage from the abandoned hexes. Gain 1 RP per abandoned hex.",
+    "success": "As critical success, but you gain no RP and increase Unrest by 1.",
+    "failure": "You abandon the hex or hexes, decreasing your kingdom's Size by 1 per hex abandoned (this affects all statistics determined by Size; see page 38). Some citizens become disgruntled refugees who refuse to leave the hex. Increase Unrest by 2 and then attempt a DC 6 flat check. If you fail, the refugees become bandits, and during your next Event phase, your kingdom experiences a Squatters kingdom event automatically in addition to any other event that might occur.",
+    "critical_failure": "As failure, but increase Unrest by 3 and automatically experience a Bandit Activity kingdom event instead of a Squatters event.",
+    "attribute": "Economy or Stability",
+    "special": "The Unrest gained from abandoning a hex doubles if it includes a settlement. A settlement in an abandoned hex becomes a Freehold (page 41)."
+  },
+  {
+    "name": "Build Roads",
+    "traits": [
+      "Downtime",
+      "Region"
+    ],
+    "requirements": "The hex in which you seek to build roads must be claimed by your kingdom.",
+    "skill_name": "Engineering",
+    "skill_proficiency": "Untrained",
+    "description": "You order your kingdom's engineers to construct a network of robust roads through the hex. Travel along roads uses a terrain type one step better than the surrounding terrain; for example, roads through forest hexes—normally difficult terrain—allow travel as if it were open terrain.\nSpend RP as determined by the hex's most inhospitable terrain (see Building on Rough Terrain on page 19; if the hex includes any rivers that cross the hex from one hex side to any other, you must spend double the normal RP cost to also build bridges; this adds a Bridge terrain feature to that hex). Then attempt a basic check. Work with the GM to determine where your roads appear on the map.",
+    "critical_success": "You build roads into the target hex and one adjacent claimed hex that doesn't yet have roads and whose terrain features are at least as hospitable as those of the target hex. If no adjacent hex is appropriate, treat this result as a Success instead.",
+    "success": "You build roads in the hex.",
+    "failure": "You fail to build roads in the hex.",
+    "critical_failure": "Your attempt to build roads ends in disaster. Not only do you fail to build roads, but you lose several workers to an accident, banditry, a vicious monster, or some other unforeseen occurrence. Gain 1 Unrest.",
+    "attribute": "Stability"
+  },
+  {
+    "name": "Build Structure",
+    "traits": [
+      "Civic",
+      "Downtime"
+    ],
+    "requirements": "",
+    "skill_name": "",
+    "skill_proficiency": "Untrained",
+    "description": "You attempt to build a structure in the settlement that's granting the Civic activity. You may choose any structure for which you meet the requirements. Select the appropriate number of contiguous buildable lots in a single block as specified by the structure's entry and spend the specified RP up to your max (see page 45) and the full Commodity cost. If the structure's cost exceeds the listed max, you must spend the maximum RP allowed. Then attempt the structure's skill check.\nYou can also use this activity to attempt to repair a structure that was damaged as the result of an event but hasn't been replaced by Rubble. To do this, first spend half the structure's listed RP and Commodity cost, and then attempt the specified check. The existing structure gives you a +2 item bonus to the check.\nOn a success, record the new construction on the Urban Grid. If you were able to pay the full RP cost, its effects are immediate unless the structure's entry states otherwise; if the structure adjusts a Ruin's point total, adjust it upon construction.",
+    "critical_success": "You repair or start construction on the structure with great efficiency and get back half of the Commodities spent in construction or repair.",
+    "success": "You repair or start construction on the structure.",
+    "failure": "You fail to construct or repair the structure. You can try again next Kingdom turn; if you do so, you do not need to re-pay the RP and Commodity cost.",
+    "critical_failure": "You fail to construct the structure; if you were attempting to repair a damaged structure, it is reduced to Rubble. In either event, Rubble now fills the structure's lots, which must be cleared with the Demolish activity before you can attempt to Build a Structure in them again.",
+    "attribute": "",
+    "item_bonus": [
+      "Construction Yard: +1 item bonus to Build Structure and to Repair Reputation (Decay)"
+    ]
+  },
+  {
+    "name": "Capital Investment",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "You must be in the capital or within the influence of a settlement that contains a Bank.",
+    "skill_name": "Trade",
+    "skill_proficiency": "Untrained",
+    "description": "You contribute funds from your personal wealth for the good of the kingdom, including coinage, gems, jewelry, weapons and armor salvaged from enemies, magical or alchemical items, and so on. Your contribution generates economic activity in the form of RP that can be used during your current Kingdom turn or on the next Kingdom turn (your choice). You can use Capital Investment to repay funds from Tap Treasury (page 33). In this case, no roll is needed and you simply deduct the appropriate amount of funds from your personal wealth to pay back that which was borrowed. When you use Capital Investment to generate RP, the amount of gp required to make an investment is set by your kingdom's level. Investments below this amount cause your attempt to suffer an automatic critical failure, while investments above this amount are lost. The investment required is equal to the value listed on the Party Treasure By Level Table of the Pathfinder GM Core (page 59); use the value for your kingdom's level under Currency per Additional PC as the required investment value. This is a basic check.",
+    "critical_success": "Your kingdom reaps the benefits of your investment. Choose to immediately roll 4 Resource Dice and gain RP equal to the result or to gain an additional 4 Resource Dice next turn.",
+    "success": "Your investment helps the economy. As critical success, but you only gain 2 Resource Dice.",
+    "failure": "Your investment ends up being used to shore up shortfalls elsewhere. Gain 1d4 RP.",
+    "critical_failure": "Your investment is embezzled, lost, or otherwise misappropriated. Choose one of the following: either roll 1 Resource Die and gain RP equal to the result and also increase your Crime by an equal amount, or gain 0 RP and increase Crime by 1.",
+    "attribute": "Economy",
+    "item_bonus": [
+      "Mint: +3 item bonus to Capital Investment, Collect Taxes, and to Repair Reputation (Crime)"
+    ]
+  },
+  {
+    "name": "Celebrate Holiday",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Folklore or Politics",
+    "skill_proficiency": "Untrained",
+    "description": "You declare a day of celebration. Holidays may be religious, historical, martial, or simply festive, but all relieve your citizens from their labors and give them a chance to make merry at the kingdom's expense. Attempt a basic Folklore or Politics check, but if your kingdom Celebrated a Holiday the previous turn, the DC increases by 4, as your kingdom hasn't had a chance to recover from the previous gala. Celebrate Holiday can only be used once per Kingdom turn, and it applies to all holidays within the month.",
+    "critical_success": "Your holidays are a delight to your people. The event is expensive, but incidental income from the celebrants covers the cost. You gain a +2 circumstance bonus to Loyalty-based checks until the end of your next Kingdom turn.",
+    "success": "Your holidays are a success, but they're also expensive. You gain a +1 circumstance bonus to Loyalty-based checks until the end of your next Kingdom turn. Immediately roll 1 Resource Die and spend RP equal to the result. If you can't afford this cost, treat this result as a Critical Failure instead.",
+    "failure": "The holiday passes with little enthusiasm, but is still expensive. Immediately roll 1 Resource Die and spend RP equal to the result. If you can't afford this cost, treat this result as a Critical Failure instead.",
+    "critical_failure": "Your festival days are poorly organized, and the citizens actively mock your failed attempt to celebrate. During the next turn, reduce your Resource Dice total by 4. The failure also causes you to take a –1 circumstance penalty to Loyalty-based checks until the end of the next Kingdom turn.",
+    "attribute": "Culture",
+    "item_bonus": [
+      "Arena: +2 item bonus to Celebrate Holiday and to Warfare checks made to Quell Unrest",
+      "Festival Hall: +1 item bonus to Celebrate Holiday",
+      "Opera House: +3 item bonus to Celebrate Holiday and Create a Masterpiece",
+      "Shrine: +1 item bonus to Celebrate Holiday",
+      "Temple: +1 item bonus to Celebrate Holiday and Provide Care",
+      "Theater: +2 item bonus to Celebrate Holiday",
+      "Gladiatorial Arena: +3 item bonus to Celebrate Holiday, to Hire Adventurers, and to Warfare checks made in order to Quell Unrest"
+    ]
+  },
+  {
+    "name": "Claim Hex",
+    "traits": [
+      "Downtime",
+      "Region"
+    ],
+    "requirements": "You have Reconnoitered the hex to be claimed during hexploration or with a successful check to Reconnoiter Hex. This hex must be adjacent to at least one hex that's already part of your kingdom. If the hex to be claimed contains dangerous hazards or monsters, they must first be cleared out—either via standard adventuring or the Clear Hex activity.",
+    "skill_name": "Exploration, Intrigue, Magic, or Wilderness",
+    "skill_proficiency": "Untrained",
+    "description": "Your surveyors fully explore the hex and attempt to add it into your kingdom's domain. Spend 1 RP and then attempt a basic Exploration, Intrigue, Magic, or Wilderness check.",
+    "critical_success": "You claim the hex and immediately add it to your territory, increasing your kingdom's Size by 1 (this affects all statistics determined by Size; see page 38). Your occupation of the hex goes so smoothly that you can immediately attempt another Region activity.",
+    "success": "You claim the hex and add it to your territory, increasing your kingdom's Size by 1 (this affects all statistics determined by Size; see page 38).",
+    "failure": "You fail to claim the hex.",
+    "critical_failure": "You fail to claim the hex, and a number of early settlers and explorers are lost, causing you to take a –1 circumstance penalty to Stability-based checks until the end of your next Kingdom turn.",
+    "attribute": "Economy, Loyalty, Culture, or Stability",
+    "special": "At 1st level, the Kingdom may select this activity no more than once per turn. Once your kingdom reaches 4th level, you may select it up to twice per turn, and after reaching 9th level you may select it up to three times per turn.\nWhen you successfully claim a hex, gain kingdom XP according to the kingdom's size as listed in the chart on page 46. Many hexes have terrain features that grant benefits to your kingdom when claimed; see Terrain Features on page 41."
+  },
+  {
+    "name": "Clandestine Business",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Intrigue",
+    "skill_proficiency": "Trained",
+    "description": "You know there are criminals in your kingdom, and they know you know. You encourage them to send kickbacks in the form of resources and Commodities to the government, but the common citizens will be more than upset if they find out! This starts as a basic check against your Control DC, but every subsequent Kingdom turn you pursue Clandestine Business, the DC increases by 2. Every Kingdom turn that passes without Clandestine Business reduces the DC by 1 (until you reach your Control DC).",
+    "critical_success": "Immediately roll 2 Resource Dice. Gain RP equal to the result. In addition, you gain 1d4 Luxury Commodities. The public is none the wiser.",
+    "success": "Either immediately roll 2 Resource Dice and gain RP equal to the result, or gain 1d4 Luxury Commodities. Regardless of your choice, rumors spread about where the government is getting these \"gifts.\" Increase Unrest by 1.",
+    "failure": "Immediately roll 1 Resource Die and gain RP equal to the result. Rumors are backed up with eyewitness accounts. Increase Unrest by 1 and Corruption by 1.",
+    "critical_failure": "You gain nothing from the Clandestine Business but angry citizens. Increase Unrest by 1d6, Corruption by 2, and one other Ruin of your choice by 1.",
+    "attribute": "Loyalty",
+    "item_bonus": [
+      "Illicit Market: +1 item bonus to Clandestine Business",
+      "Sewer System: +1 item bonus to Clandestine Business"
+    ]
+  },
+  {
+    "name": "Clear Hex",
+    "traits": [
+      "Downtime",
+      "Region"
+    ],
+    "requirements": "",
+    "skill_name": "Engineering or Exploration",
+    "skill_proficiency": "Untrained",
+    "description": "Engineers and mercenaries attempt to prepare a hex to serve as the site for a settlement, or they work to remove an existing improvement, a dangerous hazard, or an encounter. If you're trying to prepare a hex for a settlement or demolish an improvement you previously built (or that was already present in the hex), spend RP as determined by the hex's most inhospitable terrain feature (see the Building on Rough Terrain sidebar nearby). Then attempt a basic Engineering check.\nIf you're trying to remove a hazard or encounter, instead attempt an Exploration check. The DC of this check is set by the highest level creature or hazard in the hex (as set by the DCs by Level table, on page 53 of Pathfinder GM Core).\nIf the hex you're attempting to Clear has existing Ruins or an existing Structure, your action doesn't physically remove the buildings from the area and you can later incorporate these buildings (or repair ruined ones) into a Settlement you build here later. Regardless of the skill used, increase the basic DC by 2 if the hex to be cleared is not yet part of your kingdom.",
+    "critical_success": "You successfully clear the hex. If you spent RP to attempt this activity, you're refunded half of the RP cost. If you were removing dangerous creatures (but not hazards) from the hex, your explorers and mercenaries recover 2 Luxury Commodities as treasure.",
+    "success": "You successfully clear the hex.",
+    "failure": "You fail to clear the hex.",
+    "critical_failure": "You catastrophically fail to clear the hex and several workers lose their lives. Gain 1 Unrest.",
+    "attribute": "Stability or Economy"
+  },
+  {
+    "name": "Collect Taxes",
+    "traits": [
+      "Commerce",
+      "Downtime"
+    ],
+    "requirements": "",
+    "skill_name": "Trade",
+    "skill_proficiency": "Trained",
+    "description": "Tax collectors travel through the lands to collect funds for the betterment of the kingdom. Attempt a basic check.",
+    "critical_success": "Your tax collectors are wildly successful! For the remainder of the Kingdom turn, gain a +2 circumstance bonus to Economy-based checks.",
+    "success": "Your tax collectors gather enough to grant you a +1 circumstance bonus to Economy-based checks for the remainder of the Kingdom turn. If you attempted to Collect Taxes during the previous turn, increase Unrest by 1.",
+    "failure": "As success, but the people are unhappy about taxes—increase Unrest by 1 (or by 2 if you attempted to Collect Taxes the previous turn).",
+    "critical_failure": "Your tax collectors encounter resistance from the citizens and their attempts to gather taxes are rebuffed. While the tax collectors still manage to gather enough taxes to support essential government needs, they have angered the kingdom's citizens and encouraged rebellious acts. Increase Unrest by 2, and choose one Ruin to increase by 1.",
+    "attribute": "Economy",
+    "item_bonus": [
+      "Mint: +3 item bonus to Capital Investment, Collect Taxes, and to Repair Reputation (Crime)"
+    ]
+  },
+  {
+    "name": "Craft Luxuries",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Arts",
+    "skill_proficiency": "Untrained",
+    "description": "You encourage your artisans to craft luxury goods and may even aid them in this pursuit. Roll 1 Resource Die and spend RP equal to the result. Then attempt a basic check. If you can't afford the RP cost, treat your result as a critical failure.",
+    "critical_success": "Your artisans exceed expectations and craft extravagant goods. Gain 1d4 Luxury Commodities.",
+    "success": "Your artisans produce some delightful goods. Gain 1 Luxury Commodity.",
+    "failure": "Your artisans fail to produce anything noteworthy.",
+    "critical_failure": "Your artisans not only fail to produce anything noteworthy, but some took advantage of the opportunity to push their own agendas or earn more for themselves by selling to underground markets. Increase one of your Ruins by 1.",
+    "attribute": "Culture",
+    "item_bonus": [
+      "Secure Warehouse: +1 item bonus to Craft Luxuries",
+      "Specialized Artisan: +1 item bonus to Craft Luxuries"
+    ]
+  },
+  {
+    "name": "Create a Masterpiece",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Arts",
+    "skill_proficiency": "Trained",
+    "description": "You encourage your kingdom's artists to create and display a masterful work of art to bolster your kingdom's reputation. Attempt a basic check. Create a Masterpiece may be attempted only once per Kingdom turn regardless of the numbers of leaders pursuing activities.",
+    "critical_success": "Gain 1 Renown point immediately, and at the start of your next Kingdom turn, gain 1 additional Renown point. Immediately roll 2 Resource Dice. Gain RP equal to the result.",
+    "success": "Gain 1 Renown point immediately.",
+    "failure": "Your attempt to create a masterpiece fails.",
+    "critical_failure": "Not only does your attempt to create a masterpiece fail, it does so in a dramatic and humiliating way. Lose 1 Renown point; if you have no Renown points to lose, instead gain 1d4 Unrest.",
+    "attribute": "Culture",
+    "item_bonus": [
+      "Opera House: +3 item bonus to Celebrate Holiday and Create a Masterpiece"
+    ]
+  },
+  {
+    "name": "Creative Solution",
+    "traits": [
+      "Downtime",
+      "Fortune",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Scholarship",
+    "skill_proficiency": "Untrained",
+    "description": "You work with your kingdom's scholars, thinkers, and practitioners of magical and mundane experimentation to come up with new ways to resolve issues when business as usual is just not working. Attempt a basic check.",
+    "critical_success": "You can call upon the solution to aid in resolving any Kingdom skill check made during the remainder of this Kingdom turn. Do so when a Kingdom skill check is rolled, but before you learn the result. Immediately reroll that check with a +2 circumstance bonus; you must take the new result. If you don't use your Creative Solution by the end of this turn, you lose this benefit and gain 10 kingdom XP instead.",
+    "success": "As critical success, but the Creative Solution costs the kingdom 1d4 RP to research. This cost is paid now, whether or not you use your creative solution.",
+    "failure": "Your attempt at researching a Creative Solution costs the kingdom 2d6 RP, but is ultimately a failure, providing no advantage.",
+    "critical_failure": "As failure, but your scholars and thinkers are so frustrated that you take a –1 circumstance penalty to Culture-based checks until the end of your next Kingdom turn.",
+    "attribute": "Culture",
+    "special": "You cannot influence a check with Supernatural Solution and Creative Solution simultaneously.",
+    "item_bonus": [
+      "Academy: +2 item bonus to Creative Solution",
+      "University: +3 item bonus to Creative Solution"
+    ]
+  },
+  {
+    "name": "Demolish",
+    "traits": [
+      "Civic",
+      "Downtime"
+    ],
+    "requirements": "",
+    "skill_name": "Engineering",
+    "skill_proficiency": "Untrained",
+    "description": "Choose a single occupied lot in one of your settlements and attempt a basic check to reduce it to Rubble and then clear the Rubble away to make ready for a new structure. For multiple-lot structures, you'll need to perform multiple Demolish activities (or critically succeed at the activity) to fully clear all of the lots. As soon as you begin Demolishing a multiple-lot structure, all of the lots occupied by that structure no longer function.",
+    "critical_success": "Choose one of the following effects: you demolish an entire multiple-lot structure all at once and clear all of the lots it occupied, or you recover 1d6 Commodities (chosen from lumber, stone, and ore) from the Rubble of a single-lot demolition.",
+    "success": "You demolish the lot successfully.",
+    "failure": "You fail to demolish the lot. It remains in Rubble and cannot be used for further construction until you successfully Demolish it.",
+    "critical_failure": "As failure, but accidents during the demolition cost you the lives of some of your workers. Gain 1 Unrest.",
+    "attribute": "Stability",
+    "item_bonus": [
+      "Alchemy Laboratory: +1 item bonus to Demolish",
+      "Dump: +1 item bonus to Demolish"
+    ]
+  },
+  {
+    "name": "Deploy Army",
+    "traits": [
+      "Army",
+      "Downtime"
+    ],
+    "requirements": "",
+    "skill_name": "Exploration, Boating, or Magic",
+    "skill_proficiency": "Untrained",
+    "description": "The army moves through your kingdom or beyond. Since this travel occurs over the course of the entire month that preceded the Kingdom turn, the ground an army covers when it deploys can be quite extensive. You can Deploy an Army with an Exploration, Boating, or Magic check.<br><br>When you use an Exploration check, choose a location within 20 hexes of the army's current hex. If the army's starting point and ending point are connected by a road, increase the result one degree of success. Count roadless hexes that contain swamps or mountains, or each hex where you must cross a river or lake without the aid of a bridge, as two hexes. You can issue orders to force march. Doing so grants a +4 circumstance bonus on the check, but causes the army to increase its weary condition by 1 (or by 2, if you fail the check).<br><br>When you use a Boating check, the army's starting point and ending point must be connected by a body of water; choose any location within 20 hexes along this route.<br><br>You must be at least master in Magic to attempt a Magic check. When you do so, choose any location within 30 hexes of the army's current hex, then roll your check. If the army's deployment causes it to cross your kingdom's border, the DC increases by 5. If the army's deployment causes it to cross an enemy kingdom's border, the DC instead increases by 10.",
+    "critical_success": "The army arrives much more quickly than you anticipated; it arrives at its destination and then becomes efficient.",
+    "success": "The army arrives at its destination.",
+    "failure": "The army arrives at its destination, but ran into some sort of trouble along the way. Increase the army's weary condition by 1 and attempt a DC 6 flat check; on a failure, reduce the army's HP by 1.",
+    "critical_failure": "Rather than arriving at its destination, the army becomes lost until it recovers from this condition. Increase Unrest by 1d4, and attempt a DC 11 flat check; on a failure, reduce the army's HP by 1.",
+    "attribute": "Economy or Culture",
+    "item_bonus": [
+      "Keep: +1 item bonus to Deploy Army, Garrison Army, or Train Army"
+    ]
+  },
+  {
+    "name": "Disband Army",
+    "traits": [
+      "Army",
+      "Downtime"
+    ],
+    "requirements": "",
+    "skill_name": "",
+    "skill_proficiency": "",
+    "description": "You can choose to disband an army with no check needed. If the army consisted of conscripts from your kingdom, the soldiers revert to being citizens. If the army was recruited from creatures encountered in the wilds, they return to their homes. A disbanded army no longer contributes to your kingdom's Consumption.",
+    "critical_success": "",
+    "success": "",
+    "failure": "",
+    "critical_failure": "",
+    "attribute": ""
+  },
+  {
+    "name": "Establish Farmland",
+    "traits": [
+      "Downtime",
+      "Region"
+    ],
+    "requirements": "Plains or hills are the predominant terrain feature in the hex; the hex is in the influence of one of your settlements.",
+    "skill_name": "Agriculture",
+    "skill_proficiency": "Untrained",
+    "description": "You plant crops and establish livestock in permanent farms, ranches, and other growing operations to create Farmland (page 41). If you're attempting to Establish Farmland in a hex that is predominantly plains, you must spend 1 RP and the check is against your Control DC. If you're targeting a hex that is predominantly hills, you must spend 2 RP and the check is against your Control DC + 5.",
+    "critical_success": "You establish two adjacent Farmland hexes instead of one. If your target hex was a hills hex, the additional hex may be a hills hex or a plains hex; otherwise, the additional hex must be a plains hex. If no appropriate hex is available, treat this result as a regular success instead.",
+    "success": "You establish one Farmland hex.",
+    "failure": "You fail to establish a Farmland hex.",
+    "critical_failure": "You fail to establish a Farmland hex, and your attempt potentially causes the spread of a blight. At the start of each of the next two Event phases, attempt a DC 6 flat check; on a failure, your kingdom experiences a Crop Failure event in this and all adjacent hexes.",
+    "attribute": "Stability"
+  },
+  {
+    "name": "Establish Settlement",
+    "traits": [
+      "Downtime",
+      "Region"
+    ],
+    "requirements": "The hex in which you're establishing the settlement was cleared with the Clear Hex kingdom activity on a prior turn and doesn't have a settlement (including a Freehold) in it currently.",
+    "skill_name": "Engineering, Industry, Politics, or Scholarship",
+    "skill_proficiency": "Untrained",
+    "description": "You draw up plans, gather resources, entice citizens, and establish boundaries to found a brand new settlement in the hex. Attempt a basic Engineering, Industry, Politics, or Scholarship check. If you cannot pay the RP required by the result of this check, treat your result as a critical failure. A settlement always starts as a village. See page 48 for further details about building settlements.",
+    "critical_success": "You establish the settlement largely with the aid of eager volunteers. Spend 1d6 RP.",
+    "success": "You establish the settlement. Spend 3d6 RP.",
+    "failure": "You establish the settlement, but inefficiently and at great expense. Spend 6d6 RP.",
+    "critical_failure": "You fail to establish the settlement.",
+    "attribute": "Stability, Economy, Loyalty, or Culture"
+  },
+  {
+    "name": "Establish Trade Agreement",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "You have diplomatic relations with the group you wish to establish an agreement with.",
+    "skill_name": "Boating, Magic, or Trade",
+    "skill_proficiency": "Untrained",
+    "description": "You send a band of merchants out to establish a trade agreement between your kingdom and a group with whom you've established diplomatic relations. If a navigable river connects your kingdom with the other group's territory, you can attempt a Boating check to Establish the Trade Agreement. If your kingdom's proficiency rank in Magic is Master or higher, you can attempt a Magic check. Otherwise, attempt a Trade check.<br><br>The check's DC is either the group's Negotiation DC (see sidebar) or your kingdom's Control DC, whichever is higher.",
+    "critical_success": "You successfully establish a trade agreement with your target, and your merchants return with gifts! Immediately roll 2 Resource Dice, then gain RP equal to the result of roll.",
+    "success": "You successfully establish a trade agreement.",
+    "failure": "Your traders reach their destination but need to sweeten the deal to secure the trade agreement. Immediately roll 2 Resource Dice, and then spend RP equal to the result of this roll. If you do so, you successfully establish a trade agreement, otherwise the attempt fails.",
+    "critical_failure": "Your trade agreement is a total loss and your traders do not return. Gain 1 Unrest, and until the end of the next Kingdom turn, take a –1 circumstance penalty to all Economy-related checks.",
+    "attribute": "Economy or Culture",
+    "item_bonus": [
+      "Brewery: +1 item bonus to Establish Trade Agreement",
+      "Luxury Store: +1 item bonus to Establish Trade Agreement",
+      "Marketplace: +1 item bonus to Establish Trade Agreement",
+      "Stable: +1 item bonus to Establish Trade Agreement",
+      "Waterfront: +1 item bonus to Go Fishing, and to Establish Trade Agreement and Rest and Relax using Boating"
+    ]
+  },
+  {
+    "name": "Establish Work Site",
+    "traits": [
+      "Downtime",
+      "Region"
+    ],
+    "requirements": "",
+    "skill_name": "Engineering",
+    "skill_proficiency": "Untrained",
+    "description": "Your hire a crew of workers to travel to a hex that contains Lumber, Ore, or Stone to be harvested. Spend RP as determined by the hex's most inhospitable terrain (see the Building on Rough Terrain sidebar on page 19). Then attempt a basic check. Lumber camps can be established in any hex that contains a significant amount of forest terrain. Mines and quarries can be established in any hex that contains a significant amount of hill or mountain terrain.",
+    "critical_success": "You establish a Work Site in the hex and proceed to discover an unexpectedly rich supply of high quality Commodities. All Commodity yields granted by this site are doubled until the end of the next Kingdom turn.",
+    "success": "You establish a Work Site in the hex.",
+    "failure": "You fail to establish a Work Site in the hex.",
+    "critical_failure": "Not only do you fail to establish a Work Site, but you lose several workers to an accident, banditry, a vicious monster, or some other unforeseen occurrence. Gain 1 Unrest.",
+    "attribute": "Stability",
+    "item_bonus": [
+      "Foundry: +1 item bonus to Establish Work Site (mine)",
+      "Lumberyard: +1 item bonus to Establish Work Site (lumber camp)",
+      "Stonemason: +1 item bonus to Establish Work Site (quarry)"
+    ]
+  },
+  {
+    "name": "Focused Attention",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "",
+    "skill_proficiency": "Untrained",
+    "description": "You set aside time to focus attention on aiding another leader in an activity. Choose another leader and a Kingdom skill, then attempt a DC 15 check using the chosen skill. On a success, you grant that leader a +2 circumstance bonus to one kingdom check using that skill, provided that leader attempts the skill check during the same Kingdom turn.\nThe Cooperative Leadership Kingdom feat (page 35) increases the efficiency of this activity.",
+    "critical_success": "",
+    "success": "",
+    "failure": "",
+    "critical_failure": "",
+    "attribute": "",
+    "special": "Focused Attention always takes a single action, irrespective of Specialized skills, and critically failing the check never adds Unrest or Ruin."
+  },
+  {
+    "name": "Fortify Hex",
+    "traits": [
+      "Downtime",
+      "Region"
+    ],
+    "requirements": "The target hex must be claimed by your kingdom and must not have a settlement in it.",
+    "skill_name": "Defense",
+    "skill_proficiency": "Untrained",
+    "description": "Your command your engineers to construct a protected encampment, such as a fort or barbican, to serve as a defensive post in the hex. Spend RP as determined by the hex's most inhospitable terrain (see the Building on Rough Terrain sidebar on page 19). Then attempt a basic check. A fortified hex grants an additional bonus in warfare (see the section starting on page 61 of the Kingmaker Player's Guide), but also gives the hex a Refuge feature.\nAt the GM's discretion, a settlement later established on the site may qualify to convert the Refuge to an appropriate structure such as a Barracks at reduced or no cost (such a discount should generally not equal more than 1 Resource Die and/or 2 Commodities and a structure received for free should not cost any Commodities; any remaining cost must be paid before the settlement gains the structure).",
+    "critical_success": "You find a defensible position for your fortification and finish construction efficiently. Gain a refund of half the RP you spent to build in the hex, then reduce Unrest by 1.",
+    "success": "You establish your fortification in the hex. Reduce Unrest by 1.",
+    "failure": "You fail to fortify the hex.",
+    "critical_failure": "Your attempt ends in disaster. Not only do you fail to build a structure, but you lose several workers to an accident, banditry, a vicious monster, or some other unforeseen occurrence. Gain 1 Unrest.",
+    "attribute": "Stability"
+  },
+  {
+    "name": "Garrison Army",
+    "traits": [
+      "Army",
+      "Downtime"
+    ],
+    "requirements": "The army is in the same hex as a Refuge, Settlement, or Work Site.",
+    "skill_name": "Defense, Politics, or Engineering",
+    "skill_proficiency": "Untrained",
+    "description": "You move an army into a fortification and assign them to guard it. In order to garrison, the army must be located in a hex that contains a Refuge, Settlement, or Work Site. If you're garrisoning the army in a Refuge hex, attempt a basic Defense check. If you're garrisoning the army in a settlement, attempt a basic Politics check. If you're garrisoning the army in a Work Site hex, attempt a basic Engineering check. This check's DC increases by 5 if the hex is not part of your kingdom, or by 10 if the location is part of an enemy kingdom.",
+    "critical_success": "The army becomes fortified until it is deployed. Additionally, the efficiency of the garrisoning reduces this army's Consumption by 2 (to a minimum of 1) until it is deployed.",
+    "success": "The army becomes fortified until it is deployed.",
+    "failure": "The army becomes fortified until the next Kingdom turn begins, at which point you must use this activity again to maintain the fortified condition.",
+    "critical_failure": "Your army clashes with local citizens, abuses their authority, lets their watchful readiness slack, and/or provokes confrontations where they are not needed. It does not become fortified, and you cannot attempt to garrison that army at this location again for 4 Kingdom turns. Increase Unrest by 1.",
+    "attribute": "Stability or Loyalty",
+    "item_bonus": [
+      "Barracks: +1 item bonus to Garrison Army, Recover Army, or Recruit Army",
+      "Keep: +1 item bonus to Deploy Army, Garrison Army, or Train Army",
+      "Palace: +3 item bonus to New Leadership, Pledge of Fealty, and Send Diplomatic Envoy, and +3 item bonus to Garrison Army, Recover Army, or Recruit Army"
+    ]
+  },
+  {
+    "name": "Gather Livestock",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Wilderness",
+    "skill_proficiency": "Untrained",
+    "description": "Attempt a basic check to gather excess livestock from local wildlife, ranches, and farms. This generates a number of Food commodities.",
+    "critical_success": "Gain 1d4 Food commodities.",
+    "success": "Gain 1 Food commodity.",
+    "failure": "Gain no Food commodities.",
+    "critical_failure": "Lose 1d4 Food commodities to spoilage. If you have no Food to lose, you instead gain 1 Unrest.",
+    "attribute": "Stability",
+    "item_bonus": [
+      "Stockyard: +1 item bonus to Gather Livestock"
+    ]
+  },
+  {
+    "name": "Go Fishing",
+    "traits": [
+      "Downtime",
+      "Region"
+    ],
+    "requirements": "Must have at least one claimed hex that includes river or lake terrain.",
+    "skill_name": "Boating",
+    "skill_proficiency": "Untrained",
+    "description": "Attempt a basic check to fish for food from the rivers and lakes in your kingdom.",
+    "critical_success": "Gain 1d4 Food commodities.",
+    "success": "Gain 1 Food commodity.",
+    "failure": "Gain no Food commodities.",
+    "critical_failure": "You lose some fishers to tragic accidents; gain 1 Unrest.",
+    "attribute": "Economy",
+    "item_bonus": [
+      "Waterfront: +1 item bonus to Go Fishing, and to Establish Trade Agreement and Rest and Relax using Boating"
+    ]
+  },
+  {
+    "name": "Harvest Crops",
+    "traits": [
+      "Downtime",
+      "Region"
+    ],
+    "requirements": "",
+    "skill_name": "Agriculture",
+    "skill_proficiency": "Untrained",
+    "description": "Attempt a basic check to forage for wild edibles or gather excess crops from farms.",
+    "critical_success": "Gain 1d4 Food commodities.",
+    "success": "Gain 1 Food commodity.",
+    "failure": "Gain no Food commodities.",
+    "critical_failure": "Lose 1d4 Food commodities to spoilage; if you have no Food to lose, you instead gain 1 Unrest.",
+    "attribute": "Stability",
+    "item_bonus": [
+      "Mill: +1 item bonus to Harvest Crops"
+    ]
+  },
+  {
+    "name": "Hire Adventurers",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Exploration",
+    "skill_proficiency": "Untrained",
+    "description": "While the PCs can strike out themselves to deal with ongoing events, it's often more efficient to Hire Adventurers. When you Hire Adventurers, choose a continuous event. The DC of the check to Hire Adventurers is equal to your Control DC adjusted by the event's level modifier. Roll 1 Resource Die and spend RP equal to the result each time you attempt this activity.",
+    "critical_success": "You end the continuous event.",
+    "success": "The continuous event doesn't end, but you gain a +2 circumstance bonus to resolve the event during the next Event phase.",
+    "failure": "You fail to end the continuous event. If you try to end the continuous event again, the cost in RP increases to 2 Resource Dice.",
+    "critical_failure": "As failure, but word spreads quickly through the region—you can no longer attempt to end this continuous event by Hiring Adventurers.",
+    "attribute": "Economy",
+    "item_bonus": [
+      "Inn: +1 Item bonus to Hire Adventurers",
+      "Tavern, Luxury: +2 item bonus to Hire Adventurers and to Rest and Relax using Trade",
+      "Tavern, Popular: +1 item bonus to Hire Adventurers and to Rest and Relax using Trade",
+      "Tavern, World-Class: +3 item bonus to Hire Adventurers, to Rest and Relax using Trade, and to Repair Reputation (Strife)",
+      "Gladiatorial Arena: +3 item bonus to Celebrate Holiday, to Hire Adventurers, and to Warfare checks made in order to Quell Unrest"
+    ]
+  },
+  {
+    "name": "Improve Lifestyle",
+    "traits": [
+      "Commerce",
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Politics",
+    "skill_proficiency": "Untrained",
+    "description": "Attempt a basic check to draw upon your kingdom's treasury to enhance the quality of life for your citizens.",
+    "critical_success": "Your push to Improve Lifestyle affords your citizens significant free time to pursue recreational activities. For the remainder of the Kingdom turn, you gain a +2 circumstance bonus to Culture-based checks.",
+    "success": "Your push to Improve Lifestyle helps your citizens enjoy life. For the remainder of the Kingdom turn, you gain a +2 circumstance bonus to Culture-based checks.",
+    "failure": "As success, but you've strained your treasury. Take a –1 circumstance penalty to Economy-based checks for the remainder of this Kingdom turn.",
+    "critical_failure": "Your attempt to Improve Lifestyles backfires horribly as criminal elements in your kingdom abuse your generosity. You take a –1 circumstance penalty to Economy-based checks for the remainder of the Kingdom turn, gain 1 Unrest, and add 1 to a Ruin of your choice.",
+    "attribute": "Loyalty",
+    "item_bonus": [
+      "Mansion: +1 item bonus to Improve Lifestyle",
+      "Noble Villa: +1 item bonus to Improve Lifestyle and to Quell Unrest using Politics",
+      "Printing House: +2 item bonus to Improve Lifestyle and Quell Unrest"
+    ]
+  },
+  {
+    "name": "Infiltration",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Intrigue",
+    "skill_proficiency": "Untrained",
+    "description": "You send spies out to gather intelligence on a neighboring nation, a cult or thieves' guild within your borders, an unclaimed Freehold, or even an unexplored adventure site. Alternately, you can simply send your spies out to investigate the current health of your kingdom. Attempt a basic check.",
+    "critical_success": "You learn something valuable or helpful. If you were infiltrating a specific target, the GM decides what is learned, but the information is exact and precise. For example, if you were infiltrating an unexplored ruin, you might learn that the site is infested with web lurkers and spider swarms. If you were investigating your kingdom's health, your spies reveal easy methods to address citizen dissatisfaction, allowing you to choose one of the following: reduce Unrest by 1d4 or reduce a Ruin of your choice by 1.",
+    "success": "You learn something helpful about the target, but the information is vague and imprecise. For example, if you were infiltrating the same ruin mentioned in the critical success above, you might learn that some sort of aberration uses the ruins as its lair. If you were investigating your kingdom's health, your spies learn enough that you can take action. Reduce your kingdom's Unrest by 1.",
+    "failure": "Your spies fail to learn anything of import, but they are not themselves compromised.",
+    "critical_failure": "You never hear from your spies again, but someone certainly does! You take a –2 circumstance penalty on all kingdom checks until the end of the next Kingdom turn as counter-infiltration from an unknown enemy tampers with your kingdom's inner workings.",
+    "attribute": "Loyalty",
+    "item_bonus": [
+      "Thieves' Guild: +1 item bonus to Infiltration"
+    ]
+  },
+  {
+    "name": "Irrigation",
+    "traits": [
+      "Downtime",
+      "Region"
+    ],
+    "requirements": "You control a hex adjacent to a river or lake that itself does not contain a river or lake.",
+    "skill_name": "Engineering",
+    "skill_proficiency": "Trained",
+    "description": "You send excavators to build waterways, canals, or drainage systems to convey water from areas that have natural access to a river or lake. Spend RP as determined by the hex's most inhospitable terrain feature (see the Building on Rough Terrain sidebar on page 19). Then attempt a basic check.",
+    "critical_success": "The hex gains a river or lake terrain feature (or you change the effects of a previous critical failure at Irrigation in this hex into a failure); work with your GM to determine where these features appear in the hex. In addition, your workers were efficient and quick, and you regain half the RP you spent building the waterways.",
+    "success": "As critical success, but without regaining any RP.",
+    "failure": "You fail to build workable systems or to restore a previous critical failure, and the hex does not gain the river or lake terrain feature.",
+    "critical_failure": "As failure, but your attempts at Irrigation are so completely useless that they become breeding grounds for disease. Gain 1 Unrest. From this point onward, at the start of your Kingdom turn's Event phase, attempt a DC 4 flat check. This flat check's DC increases by 1 for each hex in your kingdom that contains a critically failed attempt at Irrigation. If you fail this flat check, your kingdom suffers a Plague event in addition to any other event it might have. You can attempt this activity again in a later Kingdom turn to undo a critically failed Irrigation attempt.",
+    "attribute": "Stability"
+  },
+  {
+    "name": "Manage Trade Agreements",
+    "traits": [
+      "Commerce",
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Trade",
+    "skill_proficiency": "Untrained",
+    "description": "You send agents out to attend to established trade agreements. Spend 2 RP per Trade Agreement you wish to manage. Then attempt a basic check. If you Managed Trade Agreements on the previous turn, increase this DC by 5. The maximum number of Trade Agreements you can manage per turn is equal to 2, plus 2 per proficiency rank in Trade the kingdom has beyond trained (4 if the kingdom is trained in Trade, 6 if it is expert, 8 if it is master, and 10 if it is legendary).",
+    "critical_success": "At the start of your next Kingdom turn, you gain 1 bonus Resource Die per trade agreement, and 1 Commodity of your choice per trade agreement (no more than half of these Commodities may be Luxuries).",
+    "success": "As critical success, but you must choose between gaining Resource Dice or Commodities.",
+    "failure": "You gain 1 RP per trade agreement at the start of your next turn.",
+    "critical_failure": "You gain no benefit, as your traders and merchants met with bad luck on the road. You can't Manage Trade Agreements for 1 Kingdom turn.",
+    "attribute": "Economy"
+  },
+  {
+    "name": "New Leadership",
+    "traits": [
+      "Downtime",
+      "Upkeep"
+    ],
+    "requirements": "",
+    "skill_name": "Intrigue, Politics, Statecraft, or Warfare",
+    "skill_proficiency": "Untrained",
+    "description": "You announce the promotion of a character into a leadership role, whether they're a newly appointed leader or just shifting from one leadership role to another.\nYou normally perform this activity at the start of a Kingdom turn, but if unexpected events (such as the death of the character) remove a leader from a leadership role, you may immediately use the New Leadership activity to attempt to assign a new leader to that role, even outside of a Kingdom turn (applying the vacancy penalty for that role as appropriate).\nAttempt a basic Intrigue, Politics, Statecraft, or Warfare skill check—while any of these skills can be used, each skill is particularly suited to assigning two specific leadership roles.\n- Intrigue: Grants a +2 circumstance bonus to checks to assign Emissaries and Treasurers.\n- Politics: Grants a +2 circumstance bonus to checks to assign Counselors and Rulers.\n- Statecraft: Grants a +2 circumstance bonus to checks to assign Magisters and Viceroys.\n- Warfare: Grants a +2 circumstance bonus to checks to assign Generals and Wardens.\n\nRulers are particularly difficult to assign; when you take this activity to assign a new Ruler, you take a –4 circumstance penalty to the skill check, and unless you achieve a critical success, you gain 1 additional Unrest.\nA leader newly added in this way gains one fewer action during the Kingdom Activities step of the Activities Phase on the Kingdom turn in which they are appointed.",
+    "critical_success": "The people love the new leader. The leader immediately provides the benefits tied to occupying the new role and gains a +1 circumstance bonus to all Kingdom skill checks they attempt before the end of the next Kingdom turn.",
+    "success": "The people accept the new leader. The leader immediately provides the benefits tied to occupying the new role.",
+    "failure": "The people are unsure about the new leader. The leader takes a –1 circumstance penalty to all checks they attempt as part of their activities during the Activity phase of each Kingdom turn. At the end of the next Kingdom turn, the leader can attempt any Loyalty-based basic skill check to ingratiate themselves with the populace. The leader may attempt this check at the end of each Kingdom turn until they succeed. Success removes this penalty, but a critical failure results in the development detailed in Critical Failure below.",
+    "critical_failure": "The people reject the new leader. The leadership role is treated as vacant and you must attempt to reassign it using the New Leadership activity at the start of the next Kingdom turn. Unrest increases by 1.",
+    "attribute": "Loyalty",
+    "item_bonus": [
+      "Palace: +3 item bonus to New Leadership, Pledge of Fealty, and Send Diplomatic Envoy, and +3 item bonus to Garrison Army, Recover Army, or Recruit Army"
+    ]
+  },
+  {
+    "name": "Offensive Gambit",
+    "traits": [
+      "Army",
+      "Downtime"
+    ],
+    "requirements": "You have at least one army in the same hex as an enemy army.",
+    "skill_name": "Intrigue or Warfare",
+    "skill_proficiency": "Untrained",
+    "description": "You order an attack against an enemy army, causing a war encounter to begin after this Kingdom turn ends. No check is necessary if you wish to engage the enemy without attempting to gain an advantage in initiative. If you want to gain an advantage by surprising the enemy, attempt an Intrigue check. If you want to gain an advantage by intimidating the enemy, attempt a Warfare check. In either case, the DC is equal to the enemy army's Scouting DC.",
+    "critical_success": "Your approach surprises or intimidates the enemy. Your armies in this hex gain a +2 circumstance bonus on their initiative checks, and one enemy army of the party's choice in this hex becomes shaken 1.",
+    "success": "Your approach gives you an advantage. Your armies in this hex gain a +2 circumstance bonus on their initiative checks.",
+    "failure": "You gain no advantage in the battle.",
+    "critical_failure": "Not only do you fail to gain advantage, but the enemy forces have anticipated the attack. Enemy armies in this hex at the time of the Offensive Gambit gain a +4 circumstance bonus on their initiative checks in any resulting war encounters.",
+    "attribute": "Loyalty"
+  },
+  {
+    "name": "Outfit Army",
+    "traits": [
+      "Army",
+      "Downtime"
+    ],
+    "requirements": "",
+    "skill_name": "Trade or Warfare",
+    "skill_proficiency": "Untrained",
+    "description": "You provide your army with better gear. Choose what sort of gear you wish to provide your army with from the list beginning on page 574. The level of the gear chosen must be equal to or less than the army's level. If you're crafting or purchasing gear, the level of the gear chosen must be equal to or less than your kingdom level. If you're distributing resources gained from battle, the level of the gear chosen must be equal to or less than the highest level of an enemy army defeated in that battle.<br><br>If you're purchasing the gear, this activity requires a basic Trade check and costs the standard amount of RP for the gear; you cannot purchase magic gear unless your kingdom is at least expert rank in Magic.<br><br>If you're distributing gear gained from battle, this activity requires a basic Warfare check and does not cost RP.",
+    "critical_success": "The gear proved particularly easy to outfit, and the army becomes efficient.",
+    "success": "The gear is sufficient, and your army becomes outfitted with it immediately.",
+    "failure": "The gear proves to be unusable and the attempt to outfit the army fails. If you spent RP on the check, it is refunded.",
+    "critical_failure": "As failure, but spent RP is not refunded.",
+    "attribute": "Economy or Loyalty",
+    "item_bonus": [
+      "Garrison: +1 item bonus to Outfit Army or Train Army",
+      "Smithy: +1 item bonus to Trade Commodities, +1 item bonus to Outfit Army"
+    ]
+  },
+  {
+    "name": "Pledge of Fealty",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Intrigue, Statecraft, or Warfare",
+    "skill_proficiency": "Trained",
+    "description": "When your representatives encounter freeholders, refugees, independent groups, or other bands of individuals gathered in the wilderness who aren't already part of a nation, you can offer them a place in your kingdom, granting them the benefits of protection, security, and prosperity in exchange for their fealty. The benefits granted to your kingdom can vary wildly, but often manifest as one-time boons to your commodities or unique bonuses against certain types of events.\nThe adventure text in this campaign offers numerous examples of groups who could accept a Pledge of Fealty. You can attempt this skill check with Intrigue, Statecraft, or Warfare; however, certain groups will respond better (or worse) to specific skills. The DC is the group's Negotiation DC (see the sidebar on page 19).",
+    "critical_success": "The group becomes part of your kingdom, granting the specific boon or advantage listed in that group's entry. If you haven't already claimed the hex in which the group dwells, you immediately do so, gaining 10 kingdom XP and increasing your kingdom's Size by 1 (this affects all statistics determined by Size; see page 38). If the hex doesn't share a border with your kingdom, it becomes a secondary territory and checks involving this location take a Control penalty.",
+    "success": "As critical success, but you don't claim the hex the group is in. Immediately roll 1 Resource Die. You must spend RP equal to the result to integrate the group into your kingdom.",
+    "failure": "The group refuses to pledge to you at this time. You can attempt to get them to Pledge Fealty next turn. Increase Unrest by 1.",
+    "critical_failure": "The group refuses to pledge to you—furthermore, it will never Pledge Fealty to your kingdom, barring significant in-play changes or actions by the PCs (subject to the GM's approval). The group's potentially violent rebuff of your offer increases Unrest by 2 and increases a Ruin of your choice by 1.",
+    "attribute": "Loyalty",
+    "item_bonus": [
+      "Military Academy: +2 item bonus to Pledge of Fealty using Warfare, +2 item bonus to Train Army",
+      "Palace: +3 item bonus to New Leadership, Pledge of Fealty, and Send Diplomatic Envoy, and +3 item bonus to Garrison Army, Recover Army, or Recruit Army"
+    ]
+  },
+  {
+    "name": "Prognostication",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Magic",
+    "skill_proficiency": "Trained",
+    "description": "Your kingdom's spellcasters read the omens and provide advice on how best to prepare for near-future events. Attempt a basic check.",
+    "critical_success": "If you have a random kingdom event this turn, roll twice to determine the event that takes place. The players choose which of the two results occurs, and the kingdom gains a +2 circumstance bonus to the check to resolve the event.",
+    "success": "Gain a +1 circumstance bonus to checks made to resolve random kingdom events this turn.",
+    "failure": "Your spellcasters divine no aid.",
+    "critical_failure": "Your spellcasters provide inaccurate readings of the future. You automatically have a random kingdom event this turn. Roll twice to determine the event that takes place; the GM decides which of the two results occurs.",
+    "attribute": "Culture",
+    "item_bonus": [
+      "Occult Shop: +2 item bonus to Prognostication"
+    ]
+  },
+  {
+    "name": "Provide Care",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Defense",
+    "skill_proficiency": "Untrained",
+    "description": "Attempt a basic check to organize and encourage your settlements' healers, apothecaries, medics, and other caregivers to provide care and support for citizens in need.",
+    "critical_success": "You provide unexpectedly compassionate support for the people. Reduce Unrest by 1 and reduce one Ruin of your choice by 1.",
+    "success": "Your care soothes the worries and fears of the populace; reduce Unrest by 1.",
+    "failure": "You don't provide any notable care for the citizens, but at least you don't make things worse.",
+    "critical_failure": "Your attempt to provide care backfires. Increase your Unrest or a Ruin of your choice by 1.",
+    "attribute": "Stability",
+    "item_bonus": [
+      "Herbalist: +1 item bonus to Provide Care",
+      "Hospital: +1 item bonus to Provide Care and Quell Unrest",
+      "Temple: +1 item bonus to Celebrate Holiday and Provide Care"
+    ]
+  },
+  {
+    "name": "Purchase Commodities",
+    "traits": [
+      "Commerce",
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Trade",
+    "skill_proficiency": "Untrained",
+    "description": "You can spend RP to purchase commodities, but doing so is more expensive than gathering them or relying upon trade agreements. When you Purchase Commodities, select the Commodity you wish to purchase (Food, Lumber, Luxuries, Ore, or Stone). Expend 8 RP if you're purchasing Luxuries or 4 RP if you're purchasing any other Commodity. Then attempt a basic check.",
+    "critical_success": "You immediately gain 4 Commodities of the chosen type and 2 Commodities of any other type (except Luxuries).",
+    "success": "You gain 2 Commodities of the chosen type.",
+    "failure": "You gain 1 Commodity of the chosen type.",
+    "critical_failure": "You gain no Commodities.",
+    "attribute": "Economy",
+    "item_bonus": [
+      "Trade Shop: +1 item bonus to Purchase Commodities"
+    ]
+  },
+  {
+    "name": "Quell Unrest",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Arts, Folklore, Intrigue, Magic, Politics, or Warfare",
+    "skill_proficiency": "Untrained",
+    "description": "You send your agents among the citizenry with the charge of suppressing dissent and calming unrest. You can attempt a basic Arts, Folklore, Intrigue, Magic, Politics, or Warfare check to Quell Unrest, but you can never use the same skill for this activity in consecutive Kingdom turns. This activity cannot be attempted more than once per Kingdom turn.",
+    "critical_success": "Reduce Unrest by 1d6.",
+    "success": "Reduce Unrest by 1.",
+    "failure": "You fail to reduce Unrest.",
+    "critical_failure": "You not only fail to reduce Unrest, but actually incite further anger among the citizenry. Choose one of the following: increase Unrest by 1d4 or increase two Ruins of your choice by 1.",
+    "attribute": "Culture or Loyalty",
+    "item_bonus": [
+      "Arcanist's Tower: +1 item bonus to Quell Unrest using Magic",
+      "Arena: +2 item bonus to Celebrate Holiday and to Warfare checks made to Quell Unrest",
+      "Hospital: +1 item bonus to Provide Care and Quell Unrest",
+      "Jail: +1 item bonus to Quell Unrest using Intrigue",
+      "Noble Villa: +1 item bonus to Improve Lifestyle and to Quell Unrest using Politics",
+      "Printing House: +2 item bonus to Improve Lifestyle and Quell Unrest",
+      "Sacred Grove: +1 item bonus to Quell Unrest using Folklore",
+      "Gladiatorial Arena: +3 item bonus to Celebrate Holiday, to Hire Adventurers, and to Warfare checks made in order to Quell Unrest"
+    ]
+  },
+  {
+    "name": "Recover Army",
+    "traits": [
+      "Army",
+      "Downtime"
+    ],
+    "requirements": "",
+    "skill_name": "",
+    "skill_proficiency": "",
+    "description": "When an army endures ill fortune, it can become afflicted by negative conditions. You can use the Recover Army activity to work at removing an affliction with a basic skill check (this DC increases by 5 if you are attempting to Recover from the defeated condition); the skill required for the check depends on the affliction.",
+    "critical_success": "You reduce the affliction's value by 2 (or in the case of a damaged army, increase its HP by 2 up to its maximum). If the affliction does not have a value, it is removed.",
+    "success": "As critical success but you reduce the affliction's value by 1 (or in the case of a damaged army, increase its HP by 1 up to its maximum).",
+    "failure": "You fail to remove the affliction.",
+    "critical_failure": "You fail to remove the affliction and your soldier's lowered morale spreads discontent; increase Unrest by 1. If you were attempting to recover a defeated army, the army is destroyed.",
+    "attribute": "",
+    "item_bonus": [
+      "Barracks: +1 item bonus to Garrison Army, Recover Army, or Recruit Army",
+      "Palace: +3 item bonus to New Leadership, Pledge of Fealty, and Send Diplomatic Envoy, and +3 item bonus to Garrison Army, Recover Army, or Recruit Army"
+    ]
+  },
+  {
+    "name": "Recruit Army",
+    "traits": [
+      "Army",
+      "Downtime"
+    ],
+    "requirements": "",
+    "skill_name": "Warfare or Statecraft",
+    "skill_proficiency": "Untrained",
+    "description": "Note that you pursue this activity during the Leadership step of the Activity phase. Either you recruit an army from your kingdom's citizens, or you secure the allegiance of a specialized army you encountered in the Stolen Lands. If you're recruiting an army from your kingdom's citizens, choose one of the basic armies listed at the start of page 570 and attempt a Warfare check against the army's Recruitment DC. If you're securing a specialized army, you must attempt a Statecraft check against the Recruitment DC; statistics for these armies appear starting on page 571.",
+    "critical_success": "You recruit the army; it becomes efficient.",
+    "success": "You recruit the army.",
+    "failure": "You fail to recruit the army.",
+    "critical_failure": "Many of the individuals in the army you attempted to recruit took offense at the attempt. Gain 1 Unrest, and you cannot attempt to recruit an army again until the next Kingdom turn.",
+    "attribute": "Loyalty",
+    "item_bonus": [
+      "Barracks: +1 item bonus to Garrison Army, Recover Army, or Recruit Army",
+      "Palace: +3 item bonus to New Leadership, Pledge of Fealty, and Send Diplomatic Envoy, and +3 item bonus to Garrison Army, Recover Army, or Recruit Army"
+    ]
+  },
+  {
+    "name": "Relocate Capital",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "One of your settlements that is not your current capital must contain a Castle, Palace, or Town Hall. All leaders must spend two of their leadership activities during the Activity phase of a Kingdom turn on this activity.",
+    "skill_name": "Industry",
+    "skill_proficiency": "Trained",
+    "description": "The kingdom leaders announce that they are uprooting the seat of government from its current home and reestablishing it in another settlement. Choose a leader to attempt a check with a DC equal to the kingdom's Control DC + 5. You cannot Relocate your Capital again for at least 3 Kingdom turns. After attempting to Relocate Capital, PC leaders may only attempt kingdom activities with the Civic, Commerce, or Region traits until the next Kingdom turn.",
+    "critical_success": "The move goes off splendidly, with people excited about the new capital and celebrating the leadership's wisdom.",
+    "success": "The move goes smoothly and with minimal disruption, but some folks are upset or homesick. Increase Unrest by 1.",
+    "failure": "The move causes unhappiness. Gain 1 Unrest and increase two Ruins of your choice by 1.",
+    "critical_failure": "The people reject the idea of the new capital and demand you move it back. The move is unsuccessful, and your capital remains unchanged. Gain 1d4 Unrest. Increase three Ruins of your choice by 1 and the fourth Ruin by 3.",
+    "attribute": "Economy"
+  },
+  {
+    "name": "Repair Reputation",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "",
+    "skill_proficiency": "Trained",
+    "description": "When things have gotten out of hand in the kingdom and the nation's reputation has become damaged, you can focus efforts on a campaign to reassure the citizens and bring them closer together, stamp down crime, organize repairs and maintenance of public structures, or strive to adjust poor public opinions.\nThe skill used to Repair Reputation depends on which Ruin total you wish to reduce. If you wish to reduce your Corruption, you attempt an Arts check. If you wish to reduce your Crime, you attempt a Trade check. If you wish to reduce your Decay, you attempt an Engineering check. If you wish to reduce your Strife, you attempt an Intrigue check. In all cases, the DC is your Control DC + 2. You may only attempt to Repair any given Ruin once per Kingdom turn.",
+    "critical_success": "You reduce the targeted Ruin by 2 and reduce its current ruin penalty by 1 to a minimum of 0.",
+    "success": "You reduce the targeted Ruin by 1.",
+    "failure": "You fail to reduce the targeted Ruin. You cannot attempt to Repair Reputation on this Ruin for 1 Kingdom turn.",
+    "critical_failure": "You fail to reduce the targeted Ruin in a particularly public and embarrassing way. Increase Unrest by 1d4, and you cannot attempt to Repair Reputation on this Ruin for 3 Kingdom turns.",
+    "attribute": "",
+    "item_bonus": [
+      "Construction Yard: +1 item bonus to Build Structure and to Repair Reputation (Decay)",
+      "Mint: +3 item bonus to Capital Investment, Collect Taxes, and to Repair Reputation (Crime)",
+      "Tavern, World-Class: +3 item bonus to Hire Adventurers, to Rest and Relax using Trade, and to Repair Reputation (Strife)"
+    ]
+  },
+  {
+    "name": "Request Foreign Aid",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "You have diplomatic relations with the group you are requesting aid from.",
+    "skill_name": "Statecraft",
+    "skill_proficiency": "Trained",
+    "description": "When disaster strikes, you send out a call for help to another nation with whom you have diplomatic relations. The DC of this check is equal to the other group's Negotiation DC +2 (see the sidebar on page 19), but every subsequent Kingdom turn you Request Foreign Aid from the same group, the DC increases by 2. Every Kingdom turn that passes without Requesting Foreign Aid from that Group reduces the DC by 1 (until you reach the other group's Negotiation DC +2). You may only attempt to Request Foreign Aid with a given group once per Kingdom turn regardless of the number of leaders pursuing activities.",
+    "critical_success": "Your ally's aid grants a +4 circumstance bonus to any one Kingdom skill check attempted during the remainder of this Kingdom turn. You can choose to apply this bonus to any Kingdom skill check after the die is rolled, but must do so before the result is known. In addition, immediately roll 2 Resource Dice and gain RP equal to the result; this RP does not accrue into XP at the end of the turn if you don't spend it.",
+    "success": "As critical success, but choose the benefit given by the aid: either roll 1 Resource Die and gain RP equal to the result or gain a +2 circumstance bonus to a check.",
+    "failure": "Your ally marshals its resources but cannot get aid to you in time to deal with your current situation. At the start of your next Kingdom turn, gain 1d4 RP.",
+    "critical_failure": "Your ally is tangled up in its own problems and is unable to assist you, is insulted by your request for aid, or might even have an interest in seeing your kingdom struggle against one of your ongoing events. Whatever the case, your pleas for aid make your kingdom look desperate. You gain no aid, but you do increase Unrest by 1d4.",
+    "attribute": "Loyalty",
+    "item_bonus": [
+      "Embassy: +1 item bonus to Send Diplomatic Envoy and Request Foreign Aid"
+    ]
+  },
+  {
+    "name": "Rest and Relax",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Arts, Boating, Scholarship, Trade, or Wilderness",
+    "skill_proficiency": "Untrained",
+    "description": "Working non-stop can burn out even the most devoted and dedicated individual. As such, it's important to take time for yourself, and thus set a good example for the nation.\nYou take time to relax, and you extend the chance to unwind to your citizens as well. The Kingdom skill you use to determine the effectiveness of your time off depends on how you want to spend it: Use a basic Arts check to spend the time engaged in entertainment or the pursuit of a hobby. Use a basic Boating check to enjoy trips on the lakes and rivers of your kingdom. Use a basic Scholarship check to spend the time reading or studying a topic of personal interest beyond your daily duties. Use a basic Trade check to spend your time shopping or feasting. Use a basic Wilderness check to get away from the bustle and relax in the countryside.\nIf your kingdom Rested and Relaxed the previous Kingdom turn, the DC increases by 4, as your kingdom's production and output hasn't had a chance to catch up to all those vacation days.",
+    "critical_success": "The citizens enjoy the time off and are ready to get back to work. Reduce Unrest by 1, and the next Leadership activity you take gains a +2 circumstance bonus.",
+    "success": "The time spent relaxing has calmed nerves; reduce Unrest by 1.",
+    "failure": "The rest is welcome, but not particularly beneficial in the long term.",
+    "critical_failure": "The time is wasted, and when you get back to work, you have to spend extra time catching up. The next Leadership activity you take has a –2 circumstance penalty.",
+    "attribute": "Culture, Economy, or Stability",
+    "item_bonus": [
+      "Library: +1 item bonus to Rest and Relax using Scholarship checks",
+      "Menagerie: +2 item bonus to Rest and Relax using Wilderness",
+      "Museum: +1 item bonus to Rest and Relax using Arts",
+      "Park: +1 item bonus to Rest and Relax using Wilderness checks",
+      "Tavern, Luxury: +2 item bonus to Hire Adventurers and to Rest and Relax using Trade",
+      "Tavern, Popular: +1 item bonus to Hire Adventurers and to Rest and Relax using Trade",
+      "Tavern, World-Class: +3 item bonus to Hire Adventurers, to Rest and Relax using Trade, and to Repair Reputation (Strife)",
+      "Waterfront: +1 item bonus to Go Fishing, and to Establish Trade Agreement and Rest and Relax using Boating"
+    ]
+  },
+  {
+    "name": "Send Diplomatic Envoy",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Statecraft",
+    "skill_proficiency": "Trained",
+    "description": "You send emissaries to another group to foster positive relations and communication. The DC of this check is the group's Negotiation DC (see the sidebar on page 19). Attempts to Send a Diplomatic Envoy to a nation with which your kingdom is at war take a –4 circumstance penalty to the check and have the result worsened one degree. At the GM's discretion, some wars might be so heated that this activity has no chance of success.",
+    "critical_success": "Your envoys are received quite warmly and make a good first impression. You establish diplomatic relations with the group and gain a +2 circumstance bonus to all checks made with that group until the next Kingdom turn.",
+    "success": "You establish diplomatic relations.",
+    "failure": "Your envoys are received, but the target organization isn't ready to engage in diplomatic relations. If you attempt to Send a Diplomatic Envoy to the group next Kingdom turn, you gain a +2 circumstance bonus to that check.",
+    "critical_failure": "Disaster! Your envoy fails to reach their destination, is turned back at the border, or is taken prisoner or executed, at the GM's discretion. The repercussions on your kingdom's morale and reputation are significant. Choose one of the following results: gain 1d4 Unrest, add 1 to a Ruin of your choice, or immediately roll 2 Resource Dice and spend RP equal to the result. In any event, you cannot attempt to Send a Diplomatic Envoy to this same target for the next 3 Kingdom turns. The first time your kingdom succeeds at establishing diplomatic relations in the campaign, gain 60 kingdom XP as a milestone award.",
+    "attribute": "Loyalty",
+    "item_bonus": [
+      "Embassy: +1 item bonus to Send Diplomatic Envoy and Request Foreign Aid",
+      "Palace: +3 item bonus to New Leadership, Pledge of Fealty, and Send Diplomatic Envoy, and +3 item bonus to Garrison Army, Recover Army, or Recruit Army"
+    ]
+  },
+  {
+    "name": "Supernatural Solution",
+    "traits": [
+      "Downtime",
+      "Fortune",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Magic",
+    "skill_proficiency": "Untrained",
+    "description": "Your spellcasters try to resolve issues when mundane solutions just aren't enough. Attempt a basic check.",
+    "critical_success": "You can call upon your spellcasters' supernatural solution to aid in resolving any Kingdom skill check made during the remainder of this Kingdom turn. Do so just before a Kingdom skill check is rolled (by yourself or any other PC). Attempt a Magic check against the same DC in addition to the Kingdom skill check, and take whichever of the two results you prefer. If you don't use your Supernatural Solution by the end of this Kingdom turn, this benefit ends and you gain 10 kingdom XP instead.",
+    "success": "As critical success, but the solution costs the kingdom 1d4 RP to research. This cost is paid now, whether or not you use your supernatural solution.",
+    "failure": "Your attempt at researching a supernatural solution costs the kingdom 2d6 RP, but is ultimately a failure, providing no advantage.",
+    "critical_failure": "As failure, but your spellcasters' resources and morale are impacted such that you cannot attempt a Supernatural Solution again for 2 Kingdom turns.",
+    "attribute": "Culture",
+    "special": "You cannot influence a check with Supernatural Solution and Creative Solution simultaneously.",
+    "item_bonus": [
+      "Magic Shop: +1 item bonus to Supernatural Solution"
+    ]
+  },
+  {
+    "name": "Tap Treasury",
+    "traits": [
+      "Commerce",
+      "Downtime"
+    ],
+    "requirements": "",
+    "skill_name": "Statecraft",
+    "skill_proficiency": "Untrained",
+    "description": "You tap into the cash reserves of your kingdom for the PCs' personal use or to provide emergency funding for an event. This is a basic check, but after you succeed or critically succeed at this activity, all future attempts to Tap Treasury have their results worsened two degrees. This penalty persists until funds equal to those taken from the treasury are repaid via Capital Investment (page 33).",
+    "critical_success": "You withdraw funds equal to the Currency per Additional PC column of the Party Treasure By Level Table on page 59 of the Pathfinder GM Core (using your kingdom's level to set the amount), or you successfully fund the unexpected event that required you to Tap your Treasury.",
+    "success": "As critical success, but you overdraw your treasury in the attempt. You take a –1 circumstance penalty to all Economy-based checks until the end of your next Kingdom turn.",
+    "failure": "You fail to secure the funds you need, and rumors about the kingdom's potential shortfall of cash cause you to take a –1 circumstance penalty to all Loyalty- and Economy-based checks until the end of your next Kingdom turn.",
+    "critical_failure": "As failure, but the rumors spiral out of control. Increase Unrest by 1 and add 1 to a Ruin of your choice.",
+    "attribute": "Loyalty",
+    "item_bonus": [
+      "Bank: +1 item bonus to Tap Treasury"
+    ]
+  },
+  {
+    "name": "Trade Commodities",
+    "traits": [
+      "Commerce",
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Industry",
+    "skill_proficiency": "Untrained",
+    "description": "There are five different categories of Commodities: Food, Lumber, Luxuries, Ore, and Stone. When you Trade Commodities, select one Commodity that your kingdom currently stockpiles and reduce that Commodity's stockpile by up to 4. Then attempt a basic check. If you trade with a group that you've established diplomatic relations with, you gain a +1 circumstance bonus to the check.",
+    "critical_success": "At the beginning of the next Kingdom turn, you gain 2 bonus Resource Dice per point of stockpile expended from your Commodity now.",
+    "success": "As critical success, but you only gain 1 bonus Resource Die per point of stockpile expended from your Commodity now.",
+    "failure": "You gain 1 bonus Resource Die at the beginning of your next Kingdom turn.",
+    "critical_failure": "You gain no bonus Resource Dice (though the Commodity remains depleted). If you Traded Commodities the previous turn, gain 1 Unrest.",
+    "attribute": "Economy",
+    "item_bonus": [
+      "Smithy: +1 item bonus to Trade Commodities, +1 item bonus to Outfit Army",
+      "Tannery: +1 to Trade Commodities"
+    ]
+  },
+  {
+    "name": "Train Army",
+    "traits": [
+      "Army",
+      "Downtime"
+    ],
+    "requirements": "",
+    "skill_name": "Scholarship or Warfare",
+    "skill_proficiency": "Untrained",
+    "description": "You train an army in the use of a tactic. Choose one of the tactics from those listed starting on page 575, then attempt a Scholarship or Warfare check against the tactic's Training DC. If your army has already learned its maximum number of tactics, the newly learned tactic replaces a previously learned tactic of your choice.",
+    "critical_success": "The army learns the tactic and then becomes efficient.",
+    "success": "The army learns the tactic.",
+    "failure": "The army fails to learn the tactic.",
+    "critical_failure": "The army not only fails to learn the tactic but becomes frustrated and exhausted from the training; increase the army's weary condition by 1.",
+    "attribute": "Culture or Loyalty",
+    "item_bonus": [
+      "Garrison: +1 item bonus to Outfit Army or Train Army",
+      "Keep: +1 item bonus to Deploy Army, Garrison Army, or Train Army",
+      "Military Academy: +2 item bonus to Pledge of Fealty using Warfare, +2 item bonus to Train Army"
+    ]
+  },
+  {
+    "name": "Accelerate Project",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "",
+    "skill_proficiency": "Untrained",
+    "description": "You focus additional time and resources on attempting to complete a large construction project faster than normal. Choose a structure that has been started via a successful Build Structure activity but has not yet been completed. Make a check using the skill used to build the chosen structure with a DC equal to the DC needed to build that structure +2. Regardless of the outcome, the same structure cannot be chosen for Accelerate Project until the next Kingdom Turn.",
+    "critical_success": "Your efforts are spectacularly effective at accelerating the speed of construction. You may immediately spend RP up to one and a half times the size of the kingdom's Resource Die and apply it towards the completion of the structure. If this RP is enough to finish construction, the structure is completed immediately instead of during the Ongoing Construction step. If the structure has the Edifice trait, you may only spend up to the size of the kingdom's Resource Die instead of one and a half.",
+    "success": "As critical success, but you may only spend RP up to the size of the kingdom's Resource Die or half the size of the kingdom's Resource Die if the structure has the Edifice trait.",
+    "failure": "You fail to effectively accelerate the construction.",
+    "critical_failure": "Your efforts not only fail, but cause further delays. Reduce the amount of RP you may spend on this structure during the Continuing Construction Step by the size of the Kingdom's Resource Die.",
+    "attribute": "",
+    "special": "You may still continue building the Structure during the Ongoing Construction step. As a normal, if a structure was started with a successful Build Structure activity this turn, it is ineligible for Ongoing Construction on the same turn."
+  },
+  {
+    "name": "Blessed Solution",
+    "traits": [
+      "Downtime",
+      "Fortune",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Folklore",
+    "skill_proficiency": "Untrained",
+    "description": "You entreat spirits, gods, or other forces to bless a specific undertaking. Choose a specific Kingdom skill activity. If you select the Build Structure activity you must also specify the structure. Make a basic check.",
+    "critical_success": "If you attempt the specified Kingdom skill activity before the end of the current Kingdom turn, the attempt is blessed. You gain a +2 status bonus to the check for the chosen activity, and after the result is known, you may choose to reroll the check, using Folklore instead of the normal Kingdom skill. The check is against the same DC, but the Folklore check does not gain the +2 status bonus and instead receives a -2 status penalty. After rerolling, you may choose to use either result. If you do not take the chosen activity this turn, gain 10 kingdom XP instead. As normal for fortune effects, Blessed Solution cannot be applied to a roll that would be altered by another fortune effect, and vice versa.",
+    "success": "As critical success, but the blessings cost the Kingdom 1d4 RP in offerings. This cost is paid now, even if you do not take the chosen activity this turn.",
+    "failure": "The kingdom spends 2d6 RP in offerings, but receives no blessings.",
+    "critical_failure": "As failure, but your entreaties have angered the forces such that you cannot attempt a Blessed Solution again for 2 Kingdom turns.",
+    "attribute": "Culture"
+  },
+  {
+    "name": "Observe Customs",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Folklore",
+    "skill_proficiency": "Untrained",
+    "description": "You encourage and organize the clergy and laypeople alike to perform traditional rites to bless the lands, population, and works in your Kingdom's borders. Make a basic check. This activity cannot be attempted more than once per Kingdom turn.",
+    "critical_success": "Your people perform the full array of rites with enthusiasm and fervor and their efforts are well-received. For the remainder of the Kingdom turn, you gain a +2 circumstance bonus to Stability-based checks.",
+    "success": "Your people perform the most important rites diligently and their efforts are rewarded. For the remainder of the Kingdom turn, you gain a +1 circumstance bonus to Stability-based checks.",
+    "failure": "As success, but the increased prosperity now comes at a cost later. During the next Kingdom turn, reduce your Resource Dice by 1.",
+    "critical_failure": "Your attempts to bring favor fail miserably, bringing ruin to your Kingdom instead. During the next Kingdom turn, reduce your Resource Dice by 1, gain 1 Unrest, and add 1 to a Ruin of your choice.",
+    "attribute": "Culture"
+  },
+  {
+    "name": "Reconnoiter Hex",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "Exploration or Wilderness",
+    "skill_proficiency": "Untrained",
+    "description": "You send a team to spend time surveying and exploring a specific hex, getting the lay of the land and looking for unusual features and specific sites. Spend 1 RP and then attempt a basic Exploration or Wilderness check. The DC is equal to your kingdom's Control DC plus the level of the zone containing the hex, minus your kingdom's level. For example, if an 8th Level kingdom with a Control DC of 26 wished to reconnoiter a hex in Hooktongue Slough (zone 10), the DC would be 28 (26 (Control DC) + 10 (zone level), — 8 (kingdom level)).",
+    "critical_success": "Your team successfully explores the hex and it is now Reconnoitered for the purpose of Claim Hex. Your team automatically finds one special or hidden feature if the hex contains one. If the hex contains multiple special or hidden Features the GM chooses one. If the hex contains an encounter or hazard, the team avoids it and reports back useful and detailed information on it. You do not gain Renown for a criticall success on this check. In addition, your team's reconnaissance of the hex goes so smoothly you may immediately attempt an additional Reconnoiter Hex activity on an adjacent hex. Treat a critical success on this additional check as a success instead.",
+    "success": "Your team successfully explores the hex and it is now Reconnoitered for the purpose of Claim Hex. If the hex contains a Special feature your team may find it if your GM wishes. If the hex contains an Encounter or Hazard, the team avoids it and reports basic information on it.",
+    "failure": "Your team fails to explore the hex sufficiently. If the hex contains an Encounter or Hazard, the team escapes it and reports basic information on it.",
+    "critical_failure": "Your team fails to explore the hex sufficiently and a number of the team are lost, causing you to take a -1 circumstance penalty to Loyalty-based checks until the end of your next Kingdom turn. If the hex contains an encounter or hazard, the team fails to return at all and you gain 1 Unrest. The exact fate of the team is determined by the GM.",
+    "attribute": "Economy or Stability"
+  },
+  {
+    "name": "Retrain",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "",
+    "skill_proficiency": "Untrained",
+    "description": "You spend time to walk back your kingdom's focus in one area in favor of another. Retrain may be used to change out a Kingdom feat, a skill increase, or one of a leader's Specialized skills. When using Retrain, you generally can't make choices you couldn't make when you selected the original option, as normal for Retraining (Pathfinder Player Core 440). The Retrain action may only be used once per Kingdom turn.\nTo retrain a Kingdom feat, attempt a basic Politics check. On a success, remove the old feat and replace it with another Kingdom feat whose prerequisites the Kingdom meets.\nTo retrain a skill increase, attempt a basic check with either Politics or the Kingdom skill that is to receive the increased proficiency. On a success, choose a Kingdom skill in which to reduce the proficiency rank by one step and increase the proficiency rank in another Kingdom skill by one step. Retrain may not be used to lower a Kingdom skill to Untrained. Also, when retraining a Kingdom skill increase, a skill may not be lowered if this would bring the skill below the minimum proficiency needed to build any already existing structure in any settlement. If a structure can be built with multiple skills, a given skill can be lowered as long as the Kingdom meets the minimum for at least one of the other skills.\nTo retrain a leader's chosen Specialized skill, attempt a check with the new Kingdom skill to be selected. On a success, choose a Specialized skill you have; this skill is no longer a Specialized skill for you. Choose another Kingdom skill that is not already a Specialized skill for you; this Kingdom skill is now a Specialized skill for you. You may not choose to lose a Specialized skill that is one of the five skills that are automatically Specialized skills for your leadership role.",
+    "critical_success": "The Retrain succeeds and goes very smoothly. If the Retrain was for a feat or skill increase, spend 1 RP. If you can't afford the RP cost, treat this result as a failure instead.",
+    "success": "The Retrain succeeds. If the Retrain was for a feat or skill increase, immediately roll 1 Resource Die and spend RP equal to the result. If it was for a Specialized skill, spend 1 RP. If you can't afford the RP cost, treat this result as a failure instead.",
+    "failure": "The Retrain fails and the old feat, skill increase, or skill specialization remains in place. If the Retrain was for a feat or skill increase, immediately roll 1 Resource Die and spend RP equal to the result. If it was for a Specialized skill, spend one RP.",
+    "critical_failure": "The Retrain fails badly with costly results. The Kingdom may not use the Retrain activity next turn. If the Retrain was for a feat or skill increase, immediately roll two Resource Dice and spend RP equal to the result. If it was for a Specialized skill, immediately roll one Resource Die and spend RP equal to the result.",
+    "attribute": ""
+  },
+  {
+    "name": "Take Charge",
+    "traits": [
+      "Downtime",
+      "Leadership"
+    ],
+    "requirements": "",
+    "skill_name": "",
+    "skill_proficiency": "Trained",
+    "description": "You spend some time getting directly involved in helping your kingdom. Choose a skill that your kingdom is at least trained in, then attempt a basic check. You can never use the same skill for this activity twice in the same Kingdom turn.",
+    "critical_success": "Gain 1 RP. In addition, you get a +1 Circumstance bonus to the next check you make this turn with the chosen skill.",
+    "success": "Gain 1 RP.",
+    "failure": "You fail to generate RP.",
+    "critical_failure": "You take a —1 circumstance penalty to the next check you make with the chosen skill this turn.",
+    "attribute": ""
+  }
+]

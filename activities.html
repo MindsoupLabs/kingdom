@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kingdom Activities</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, serif;
+      background: #1a1208;
+      color: #e8d5a3;
+      min-height: 100vh;
+    }
+
+    .site-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #1e1508;
+      border-bottom: 1px solid #3a2a10;
+    }
+
+    .site-nav a {
+      font-family: sans-serif;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.3em 0.8em;
+      border-radius: 3px;
+      text-decoration: none;
+      color: #a08050;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    .site-nav a:hover { color: #f0c060; background: #2e2010; }
+    .site-nav a.active { color: #f0c060; }
+
+    h1 {
+      text-align: center;
+      padding: 1.5rem 1rem 1rem;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      color: #f0c060;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid #5a3e1b;
+    }
+
+    #skill-list {
+      max-width: 800px;
+      margin: 1rem auto 3rem;
+      padding: 0 0.75rem;
+      list-style: none;
+    }
+
+    .skill-item {
+      border: 1px solid #5a3e1b;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+      background: #231a0a;
+      overflow: hidden;
+    }
+
+    .skill-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+    }
+
+    .skill-header:hover {
+      background: #2e2010;
+    }
+
+    .skill-name {
+      font-size: 1.05rem;
+      font-weight: bold;
+      color: #f0c060;
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .traits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 600px) {
+      .skill-header .traits { display: none; }
+      .skill-body .traits { display: flex; margin-bottom: 0.75rem; }
+      .skill-header { flex-wrap: nowrap; }
+      .skill-name { flex-shrink: 0; }
+      .skill-header .attribute-label {
+        flex: 0 1 auto;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    @media (min-width: 601px) {
+      .skill-body .traits { display: none; }
+    }
+
+    .trait {
+      font-size: 0.7rem;
+      font-family: sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.15em 0.5em;
+      border-radius: 3px;
+      background: #5a3e1b;
+      color: #f0d090;
+    }
+
+    .trait.downtime { background: #2a4a2a; color: #90d090; }
+    .trait.leadership { background: #4a2a4a; color: #d090d0; }
+    .trait.region { background: #1a3a4a; color: #80c0d0; }
+    .trait.civic { background: #4a3a1a; color: #d0b060; }
+    .trait.commerce { background: #3a4a1a; color: #b0d060; }
+    .trait.army { background: #4a1a1a; color: #d08080; }
+    .trait.fortune { background: #1a1a4a; color: #8080d0; }
+    .trait.upkeep { background: #3a3a1a; color: #c0c060; }
+
+    .attribute-label {
+      font-size: 0.75rem;
+      font-family: sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.15em 0.5em;
+      border-radius: 3px;
+      background: #1a2a3a;
+      color: #80a8c8;
+      white-space: nowrap;
+    }
+
+    .skill-meta {
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      color: #a08050;
+      margin-bottom: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      border-left: 3px solid #5a3e1b;
+      background: #1e1508;
+    }
+
+    .skill-meta strong {
+      color: #c0a060;
+    }
+
+    .chevron {
+      font-size: 0.75rem;
+      color: #7a5a30;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+      margin-left: 0.25rem;
+    }
+
+    .skill-item.open .chevron {
+      transform: rotate(180deg);
+    }
+
+    .skill-body {
+      display: none;
+      padding: 0.75rem 1rem 1rem;
+      border-top: 1px solid #3a2a10;
+    }
+
+    .skill-item.open .skill-body {
+      display: block;
+    }
+
+    .requirements {
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      color: #a08050;
+      margin-bottom: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      border-left: 3px solid #5a3e1b;
+      background: #1e1508;
+    }
+
+    .requirements strong {
+      color: #c0a060;
+    }
+
+    .description {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      color: #d8c590;
+    }
+
+    .degrees {
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .degree {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      padding: 0.5rem 0.75rem;
+      border-radius: 3px;
+    }
+
+    .degree strong {
+      display: block;
+      font-family: sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.2em;
+    }
+
+    .degree.crit-success { background: #0f2a0f; border-left: 3px solid #30a030; }
+    .degree.crit-success strong { color: #60d060; }
+    .degree.success { background: #1a2a10; border-left: 3px solid #70b030; }
+    .degree.success strong { color: #90c050; }
+    .degree.failure { background: #2a1a08; border-left: 3px solid #b07020; }
+    .degree.failure strong { color: #d09040; }
+    .degree.crit-failure { background: #2a0808; border-left: 3px solid #b02020; }
+    .degree.crit-failure strong { color: #d05050; }
+
+    /* Filter bar */
+    #filter-bar {
+      max-width: 800px;
+      margin: 0.75rem auto 0;
+      padding: 0 0.75rem;
+    }
+
+    #filter-panel {
+      background: #231a0a;
+      border: 1px solid #5a3e1b;
+      border-radius: 4px;
+    }
+
+    #filter-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      width: 100%;
+      background: none;
+      border: none;
+      color: #c0a060;
+      font-family: sans-serif;
+      font-size: 0.85rem;
+      padding: 0.5rem 0.75rem;
+      cursor: pointer;
+      user-select: none;
+      text-align: left;
+    }
+
+    #filter-toggle:hover { background: #2e2010; }
+
+    .filter-active-indicators {
+      display: flex;
+      gap: 0.3rem;
+      margin-left: 0.4rem;
+    }
+
+    .filter-active-dot {
+      font-size: 0.65rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.1em 0.45em;
+      border-radius: 3px;
+      background: #9a7030;
+      color: #f0e0b0;
+    }
+
+    .filter-chevron {
+      font-size: 0.65rem;
+      transition: transform 0.2s;
+      margin-left: auto;
+    }
+
+    #filter-toggle[aria-expanded="true"] .filter-chevron {
+      transform: rotate(180deg);
+    }
+
+    #filter-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding: 0.5rem 0.75rem 0.75rem;
+      border-top: 1px solid #3a2a10;
+    }
+
+    .filter-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0;
+    }
+
+    #filter-options[hidden] { display: none; }
+
+    .attr-btn {
+      font-family: sans-serif;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.3em 0.8em;
+      border-radius: 3px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      opacity: 0.55;
+      transition: opacity 0.15s, border-color 0.15s;
+    }
+
+    .attr-btn:hover { opacity: 0.8; }
+    .attr-btn.active { opacity: 1; border-color: currentColor; }
+
+    .attr-btn[data-attr="Economy"]   { background: #1a3010; color: #80c040; }
+    .attr-btn[data-attr="Culture"]   { background: #2a1040; color: #b060e0; }
+    .attr-btn[data-attr="Loyalty"]   { background: #3a1010; color: #d05858; }
+    .attr-btn[data-attr="Stability"] { background: #2a1e08; color: #c09040; }
+
+    .filter-section-label {
+      flex: 0 0 100%;
+      font-family: sans-serif;
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #7a5a30;
+    }
+
+    .filter-section + .filter-section {
+      border-top: 1px solid #3a2a10;
+      margin-top: 0.25rem;
+      padding-top: 0.6rem;
+    }
+
+    .skill-btn {
+      font-family: sans-serif;
+      font-size: 0.78rem;
+      padding: 0.25em 0.65em;
+      border-radius: 3px;
+      border: 2px solid transparent;
+      background: #2a1e0a;
+      color: #b09060;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.15s, border-color 0.15s;
+    }
+
+    .skill-btn:hover { opacity: 0.85; }
+    .skill-btn.active { opacity: 1; border-color: #b09060; }
+
+    .trait-filter-btn {
+      font-family: sans-serif;
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.2em 0.6em;
+      border-radius: 3px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      opacity: 0.55;
+      transition: opacity 0.15s, border-color 0.15s;
+      background: #5a3e1b;
+      color: #f0d090;
+    }
+
+    .trait-filter-btn[data-trait="Downtime"]  { background: #5a3e1b; color: #f0d090; }
+    .trait-filter-btn[data-trait="Leadership"] { background: #4a2a4a; color: #d090d0; }
+    .trait-filter-btn[data-trait="Region"]     { background: #1a3a4a; color: #80c0d0; }
+    .trait-filter-btn[data-trait="Civic"]      { background: #4a3a1a; color: #d0b060; }
+    .trait-filter-btn[data-trait="Commerce"]   { background: #3a4a1a; color: #b0d060; }
+    .trait-filter-btn[data-trait="Army"]       { background: #4a1a1a; color: #d08080; }
+    .trait-filter-btn[data-trait="Fortune"]    { background: #1a1a4a; color: #8080d0; }
+    .trait-filter-btn[data-trait="Upkeep"]     { background: #3a3a1a; color: #c0c060; }
+
+    .trait-filter-btn:hover { opacity: 0.8; }
+    .trait-filter-btn.active { opacity: 1; border-color: currentColor; }
+
+    #search-input {
+      width: 100%;
+      background: #1a1208;
+      border: 1px solid #5a3e1b;
+      border-radius: 3px;
+      color: #e8d5a3;
+      font-family: Georgia, serif;
+      font-size: 0.9rem;
+      padding: 0.4rem 0.6rem;
+      outline: none;
+    }
+
+    #search-input:focus { border-color: #9a7030; }
+
+    #search-input::placeholder { color: #5a4020; }
+
+    .item-bonus-section {
+      margin-bottom: 0.75rem;
+    }
+
+    .item-bonus-label {
+      font-family: sans-serif;
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #9a7030;
+      margin-bottom: 0.4rem;
+    }
+
+    .item-bonus-entry {
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      color: #d4a843;
+      padding: 0.3rem 0.75rem;
+      border-left: 3px solid #9a7030;
+      background: #1e1a08;
+      margin-bottom: 0.3rem;
+      border-radius: 0 3px 3px 0;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html">Home</a>
+  <a href="activities.html" class="active">Activities</a>
+  <a href="structures.html">Structures</a>
+</nav>
+
+<h1>Kingdom Activities</h1>
+
+<div id="filter-bar">
+  <div id="filter-panel">
+    <button id="filter-toggle" aria-expanded="false">
+      Search and Filters
+      <span class="filter-active-indicators">
+        <span class="filter-active-dot" id="ind-attr" hidden>Attribute</span>
+        <span class="filter-active-dot" id="ind-skill" hidden>Skill</span>
+        <span class="filter-active-dot" id="ind-trait" hidden>Trait</span>
+      </span>
+      <span class="filter-chevron">▼</span>
+    </button>
+    <div id="filter-options" hidden>
+      <div class="filter-section">
+        <input type="search" id="search-input" placeholder="Search actions…" autocomplete="off">
+      </div>
+      <div class="filter-section">
+        <span class="filter-section-label">Attribute</span>
+        <button class="attr-btn" data-attr="Economy">Economy</button>
+        <button class="attr-btn" data-attr="Culture">Culture</button>
+        <button class="attr-btn" data-attr="Loyalty">Loyalty</button>
+        <button class="attr-btn" data-attr="Stability">Stability</button>
+      </div>
+      <div class="filter-section">
+        <span class="filter-section-label">Skill</span>
+        <button class="skill-btn" data-skill="Agriculture">Agriculture</button>
+        <button class="skill-btn" data-skill="Arts">Arts</button>
+        <button class="skill-btn" data-skill="Boating">Boating</button>
+        <button class="skill-btn" data-skill="Defense">Defense</button>
+        <button class="skill-btn" data-skill="Engineering">Engineering</button>
+        <button class="skill-btn" data-skill="Exploration">Exploration</button>
+        <button class="skill-btn" data-skill="Folklore">Folklore</button>
+        <button class="skill-btn" data-skill="Industry">Industry</button>
+        <button class="skill-btn" data-skill="Intrigue">Intrigue</button>
+        <button class="skill-btn" data-skill="Magic">Magic</button>
+        <button class="skill-btn" data-skill="Politics">Politics</button>
+        <button class="skill-btn" data-skill="Scholarship">Scholarship</button>
+        <button class="skill-btn" data-skill="Statecraft">Statecraft</button>
+        <button class="skill-btn" data-skill="Trade">Trade</button>
+        <button class="skill-btn" data-skill="Warfare">Warfare</button>
+        <button class="skill-btn" data-skill="Wilderness">Wilderness</button>
+      </div>
+      <div class="filter-section">
+        <span class="filter-section-label">Trait</span>
+        <button class="trait-filter-btn" data-trait="Army">Army</button>
+        <button class="trait-filter-btn" data-trait="Civic">Civic</button>
+        <button class="trait-filter-btn" data-trait="Commerce">Commerce</button>
+        <button class="trait-filter-btn" data-trait="Downtime">Downtime</button>
+        <button class="trait-filter-btn" data-trait="Fortune">Fortune</button>
+        <button class="trait-filter-btn" data-trait="Leadership">Leadership</button>
+        <button class="trait-filter-btn" data-trait="Region">Region</button>
+        <button class="trait-filter-btn" data-trait="Upkeep">Upkeep</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ul id="skill-list"></ul>
+
+<script>
+  // Filter toggle
+  const filterToggle  = document.getElementById('filter-toggle');
+  const filterOptions = document.getElementById('filter-options');
+  filterToggle.addEventListener('click', () => {
+    const open = filterToggle.getAttribute('aria-expanded') === 'true';
+    filterToggle.setAttribute('aria-expanded', !open);
+    filterOptions.hidden = open;
+  });
+
+  fetch('actions.json')
+    .then(r => r.json())
+    .then(skills => {
+      skills.sort((a, b) => a.name.localeCompare(b.name));
+
+      const list = document.getElementById('skill-list');
+      const skillItems = [];
+
+      function parseAttrs(str) {
+        if (!str) return [];
+        return str.replace(', or ', ', ').replace(' or ', ', ')
+                  .split(',').map(s => s.trim()).filter(Boolean);
+      }
+
+      const activeAttrs  = new Set();
+      const activeSkills = new Set();
+      const activeTraits = new Set();
+      let searchTerm = '';
+
+      const indAttr  = document.getElementById('ind-attr');
+      const indSkill = document.getElementById('ind-skill');
+      const indTrait = document.getElementById('ind-trait');
+
+      function updateIndicators() {
+        indAttr.hidden  = activeAttrs.size  === 0;
+        indSkill.hidden = activeSkills.size === 0;
+        indTrait.hidden = activeTraits.size === 0;
+      }
+
+      function applyFilter() {
+        skillItems.forEach(({ li, attrs, skills, traits, searchText }) => {
+          const attrMatch   = activeAttrs.size  === 0 || attrs.some(a  => activeAttrs.has(a));
+          const skillMatch  = activeSkills.size === 0 || skills.some(s => activeSkills.has(s));
+          const traitMatch  = activeTraits.size === 0 || traits.some(t => activeTraits.has(t));
+          const searchMatch = searchTerm === '' || searchText.includes(searchTerm);
+          li.hidden = !(attrMatch && skillMatch && traitMatch && searchMatch);
+        });
+      }
+
+      document.getElementById('search-input').addEventListener('input', e => {
+        searchTerm = e.target.value.trim().toLowerCase();
+        applyFilter();
+      });
+
+      document.querySelectorAll('.attr-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const a = btn.dataset.attr;
+          if (activeAttrs.has(a)) { activeAttrs.delete(a); btn.classList.remove('active'); }
+          else                    { activeAttrs.add(a);    btn.classList.add('active'); }
+          updateIndicators();
+          applyFilter();
+        });
+      });
+
+      document.querySelectorAll('.skill-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const s = btn.dataset.skill;
+          if (activeSkills.has(s)) { activeSkills.delete(s); btn.classList.remove('active'); }
+          else                     { activeSkills.add(s);    btn.classList.add('active'); }
+          updateIndicators();
+          applyFilter();
+        });
+      });
+
+      document.querySelectorAll('.trait-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const t = btn.dataset.trait;
+          if (activeTraits.has(t)) { activeTraits.delete(t); btn.classList.remove('active'); }
+          else                     { activeTraits.add(t);    btn.classList.add('active'); }
+          updateIndicators();
+          applyFilter();
+        });
+      });
+
+      skills.forEach(skill => {
+        const li = document.createElement('li');
+        li.className = 'skill-item';
+
+        // Build traits HTML
+        const traitsHtml = skill.traits.map(t =>
+          `<span class="trait ${t.toLowerCase()}">${t}</span>`
+        ).join('');
+
+        // Attribute badge (collapsed row)
+        const attrHtml = skill.attribute
+          ? `<span class="attribute-label">${skill.attribute}</span>`
+          : '';
+
+        // Skill + proficiency (expanded section)
+        const skillMetaHtml = skill.skill_name
+          ? `<div class="skill-meta"><strong>Skill</strong> ${skill.skill_name}${skill.skill_proficiency ? ' [' + skill.skill_proficiency + ']' : ''}</div>`
+          : '';
+
+        // Requirements
+        const reqHtml = skill.requirements
+          ? `<div class="requirements"><strong>Requirements</strong> ${skill.requirements}</div>`
+          : '';
+
+        // Special
+        const specialHtml = skill.special
+          ? `<div class="requirements"><strong>Special</strong> ${skill.special}</div>`
+          : '';
+
+        // Description (handle <br> tags)
+        const descHtml = `<div class="description">${skill.description}</div>`;
+
+        // Degrees of success
+        const degrees = [
+          { key: 'critical_success', label: 'Critical Success', cls: 'crit-success' },
+          { key: 'success',          label: 'Success',          cls: 'success' },
+          { key: 'failure',          label: 'Failure',          cls: 'failure' },
+          { key: 'critical_failure', label: 'Critical Failure', cls: 'crit-failure' },
+        ];
+
+        const degreesHtml = degrees
+          .filter(d => skill[d.key])
+          .map(d => `<div class="degree ${d.cls}"><strong>${d.label}</strong>${skill[d.key]}</div>`)
+          .join('');
+
+        const itemBonusHtml = (skill.item_bonus && skill.item_bonus.length)
+          ? `<div class="item-bonus-section">
+              <div class="item-bonus-label">Item Bonuses</div>
+              ${skill.item_bonus.map(b => `<div class="item-bonus-entry">${b}</div>`).join('')}
+            </div>`
+          : '';
+
+        li.innerHTML = `
+          <div class="skill-header">
+            <span class="skill-name">${skill.name}</span>
+            <div class="traits">${traitsHtml}</div>
+            ${attrHtml}
+            <span class="chevron">▼</span>
+          </div>
+          <div class="skill-body">
+            <div class="traits">${traitsHtml}</div>
+            ${skillMetaHtml}
+            ${reqHtml}
+            ${itemBonusHtml}
+            ${descHtml}
+            ${specialHtml}
+            ${degreesHtml ? `<div class="degrees">${degreesHtml}</div>` : ''}
+          </div>
+        `;
+
+        li.querySelector('.skill-header').addEventListener('click', () => {
+          li.classList.toggle('open');
+        });
+
+        list.appendChild(li);
+        const searchText = [
+          skill.name, skill.description,
+          skill.critical_success, skill.success, skill.failure, skill.critical_failure
+        ].join(' ').toLowerCase();
+        skillItems.push({ li, attrs: parseAttrs(skill.attribute), skills: parseAttrs(skill.skill_name), traits: skill.traits || [], searchText });
+      });
+    });
+</script>
+</body>
+</html>

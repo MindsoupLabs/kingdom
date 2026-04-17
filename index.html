@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kingdom Rules</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Georgia, serif;
+      background: #1a1208;
+      color: #e8d5a3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      color: #f0c060;
+      letter-spacing: 0.08em;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #7a5a30;
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 3rem;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-cards {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .nav-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 2rem 2.5rem;
+      border: 1px solid #5a3e1b;
+      border-radius: 6px;
+      background: #231a0a;
+      text-decoration: none;
+      color: inherit;
+      flex: 1 1 200px;
+      max-width: 280px;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .nav-card:hover {
+      background: #2e2010;
+      border-color: #9a7030;
+    }
+
+    .nav-card-icon {
+      font-size: 2.5rem;
+      line-height: 1;
+    }
+
+    .nav-card-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #f0c060;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-card-desc {
+      font-size: 0.85rem;
+      color: #a08050;
+      text-align: center;
+      font-family: sans-serif;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Kingdom Rules</h1>
+  <p class="subtitle">Pathfinder Kingmaker Reference</p>
+
+  <nav class="nav-cards">
+    <a href="activities.html" class="nav-card">
+      <span class="nav-card-icon">⚔️</span>
+      <span class="nav-card-title">Activities</span>
+      <span class="nav-card-desc">Kingdom turn actions, skill checks, and degrees of success</span>
+    </a>
+    <a href="structures.html" class="nav-card">
+      <span class="nav-card-icon">🏛️</span>
+      <span class="nav-card-title">Structures</span>
+      <span class="nav-card-desc">Buildings, yards, and infrastructure with costs and effects</span>
+    </a>
+  </nav>
+
+</body>
+</html>
