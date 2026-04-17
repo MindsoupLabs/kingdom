@@ -131,7 +131,7 @@
     .trait.fortune { background: #1a1a4a; color: #8080d0; }
     .trait.upkeep { background: #3a3a1a; color: #c0c060; }
 
-    .attribute-label {
+    .attribute-label, .skills-label {
       font-size: 0.75rem;
       font-family: sans-serif;
       font-weight: bold;
@@ -597,6 +597,11 @@
           ? `<span class="attribute-label">${skill.attribute}</span>`
           : '';
 
+        // Skills badge (collapsed row)
+        const skillHtml = skill.skill_name
+          ? `<span class="skills-label">${skill.skill_name}</span>`
+          : '';
+
         // Skill + proficiency (expanded section)
         const skillMetaHtml = skill.skill_name
           ? `<div class="skill-meta"><strong>Skill</strong> ${skill.skill_name}${skill.skill_proficiency ? ' [' + skill.skill_proficiency + ']' : ''}</div>`
@@ -639,11 +644,12 @@
           <div class="skill-header">
             <span class="skill-name">${skill.name}</span>
             <div class="traits">${traitsHtml}</div>
-            ${skill.skill_name ? skill.skill_name + ' [' + skill.skill_proficiency + ']' : ''}
+            ${skillHtml}
             <span class="chevron">▼</span>
           </div>
           <div class="skill-body">
             <div class="traits">${traitsHtml}</div>
+            ${attrHtml}
             ${skillMetaHtml}
             ${reqHtml}
             ${itemBonusHtml}
