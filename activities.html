@@ -639,7 +639,7 @@
           <div class="skill-header">
             <span class="skill-name">${skill.name}</span>
             <div class="traits">${traitsHtml}</div>
-            ${attrHtml}
+            ${skill.skill_name ? skill.skill_name + ' [' + skill.skill_proficiency + ']'}
             <span class="chevron">▼</span>
           </div>
           <div class="skill-body">
