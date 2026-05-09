@@ -583,9 +583,14 @@
         });
       });
 
+      function slugify(name) {
+        return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      }
+
       skills.forEach(skill => {
         const li = document.createElement('li');
         li.className = 'skill-item';
+        li.id = slugify(skill.name);
 
         // Build traits HTML
         const traitsHtml = skill.traits.map(t =>
@@ -660,6 +665,11 @@
 
         li.querySelector('.skill-header').addEventListener('click', () => {
           li.classList.toggle('open');
+          if (li.classList.contains('open')) {
+            history.pushState(null, '', '#' + li.id);
+          } else {
+            history.pushState(null, '', location.pathname);
+          }
         });
 
         list.appendChild(li);
@@ -669,6 +679,15 @@
         ].join(' ').toLowerCase();
         skillItems.push({ li, attrs: parseAttrs(skill.attribute), skills: parseAttrs(skill.skill_name), traits: skill.traits || [], searchText });
       });
+
+      const initialHash = location.hash.slice(1);
+      if (initialHash) {
+        const target = document.getElementById(initialHash);
+        if (target) {
+          target.classList.add('open');
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
     });
 </script>
 </body>
